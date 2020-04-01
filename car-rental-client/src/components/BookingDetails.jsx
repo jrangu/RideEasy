@@ -51,7 +51,7 @@ export default class BookingDetails extends Component {
         <Table striped bordered hover size="xl">
           <thead>
             <tr>
-              <th>Driving License</th>
+              <th>License</th>
               <th>FirstName</th>
               <th>LastName</th>
               <th>StartDate</th>
