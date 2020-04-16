@@ -13,12 +13,32 @@ import RentCarPage from "./components/RentCarPage";
 // import Admin from "./components/Admin";
 import BookingDetails from "./components/BookingDetails";
 
+const oauth = {
+  // Domain name
+  domain: "project1.auth.us-east-2.amazoncognito.com",
+
+  //client_id: "2q0jdht83jtkap8ipvuk316uvn",
+  // Authorized scopes
+  scope: ["phone", "email", "profile", "openid"],
+
+  redirectSignIn: "http://localhost:3000/license",
+  redirectSignOut: "http://localhost:3000",
+  responseType: "code",
+
+  // optional, for Cognito hosted ui specified options
+  options: {
+    // Indicates if the data collection is enabled to support Cognito advanced security features. By default, this flag is set to true.
+    AdvancedSecurityDataCollectionFlag: true
+  }
+};
+
 amplify.configure({
   Auth: {
     mandatorySignId: true,
     region: config.cognito.REGION,
     userPoolId: config.cognito.USER_POOL_ID,
-    userPoolWebClientId: config.cognito.APP_CLIENT_ID
+    userPoolWebClientId: config.cognito.APP_CLIENT_ID,
+    oauth: oauth
   }
 });
 ReactDOM.render(
