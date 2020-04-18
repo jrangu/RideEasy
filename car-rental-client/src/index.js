@@ -15,11 +15,11 @@ import BookingDetails from "./components/BookingDetails";
 
 const oauth = {
   // Domain name
-  domain: "project1.auth.us-east-2.amazoncognito.com",
+  domain: "project3.auth.us-east-2.amazoncognito.com",
 
   //client_id: "2q0jdht83jtkap8ipvuk316uvn",
   // Authorized scopes
-  scope: ["phone", "email", "profile", "openid"],
+  scope: ["email", "profile", "openid"],
 
   redirectSignIn: "http://localhost:3000/license",
   redirectSignOut: "http://localhost:3000",
