@@ -5,6 +5,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import * as serviceWorker from "./serviceWorker";
 import { BrowserRouter, Route } from "react-router-dom";
 import amplify from "aws-amplify";
+import { I18n } from "aws-amplify";
 import config from "./config";
 import Loginpage from "./components/LoginPage";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -31,6 +32,15 @@ const oauth = {
     AdvancedSecurityDataCollectionFlag: true
   }
 };
+
+const authScreenLabels = {
+  en: {
+    "Sign in with AWS": "Sign in with Microsoft"
+  }
+};
+
+I18n.setLanguage("en");
+I18n.putVocabularies(authScreenLabels);
 
 amplify.configure({
   Auth: {
