@@ -5,6 +5,7 @@ import "bootstrap/dist/css/bootstrap.css";
 import * as serviceWorker from "./serviceWorker";
 import { BrowserRouter, Route } from "react-router-dom";
 import amplify from "aws-amplify";
+import { I18n } from "aws-amplify";
 import config from "./config";
 import Loginpage from "./components/LoginPage";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -13,12 +14,41 @@ import RentCarPage from "./components/RentCarPage";
 // import Admin from "./components/Admin";
 import BookingDetails from "./components/BookingDetails";
 
+const oauth = {
+  // Domain name
+  domain: "project3.auth.us-east-2.amazoncognito.com",
+
+  //client_id: "2q0jdht83jtkap8ipvuk316uvn",
+  // Authorized scopes
+  scope: ["email", "profile", "openid"],
+
+  redirectSignIn: "http://localhost:3000/license",
+  redirectSignOut: "http://localhost:3000",
+  responseType: "code",
+
+  // optional, for Cognito hosted ui specified options
+  options: {
+    // Indicates if the data collection is enabled to support Cognito advanced security features. By default, this flag is set to true.
+    AdvancedSecurityDataCollectionFlag: true
+  }
+};
+
+const authScreenLabels = {
+  en: {
+    "Sign in with AWS": "Sign in with Microsoft"
+  }
+};
+
+I18n.setLanguage("en");
+I18n.putVocabularies(authScreenLabels);
+
 amplify.configure({
   Auth: {
     mandatorySignId: true,
     region: config.cognito.REGION,
     userPoolId: config.cognito.USER_POOL_ID,
-    userPoolWebClientId: config.cognito.APP_CLIENT_ID
+    userPoolWebClientId: config.cognito.APP_CLIENT_ID,
+    oauth: oauth
   }
 });
 ReactDOM.render(
