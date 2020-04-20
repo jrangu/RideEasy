@@ -1,3 +1,3 @@
 car-rental-client/node_modules
-.idea
-target
+backend/.idea
+backend/target
