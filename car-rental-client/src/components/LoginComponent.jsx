@@ -7,17 +7,19 @@ import { Redirect } from "react-router-dom";
 class LoginComponent extends React.Component {
   constructor(props, context) {
     super(props, context);
+    this.state = {
+      Role: ""
+    };
   }
 
   componentDidMount() {
     localStorage.setItem("userName", Auth.user.username);
   }
-
   render() {
-    if (Auth.user.username === "masteradmin") {
-      return <Redirect to="/admin" />;
-    } else {
+    if (Auth.user.attributes.name == "Rider") {
       return <Redirect to="/license" />;
+    } else {
+      return <Redirect to="/admin" />;
     }
   }
 }
@@ -35,15 +37,9 @@ export default withAuthenticator(LoginComponent, {
     hiddenDefaults: ["phone_number"],
     signUpFields: [
       {
-        label: "First Name",
+        label: "Role(Driver or Rider)",
         key: "name",
-        required: false,
-        type: "string"
-      },
-      {
-        label: "Last Name",
-        key: "name",
-        required: false,
+        required: true,
         type: "string"
       }
     ]
