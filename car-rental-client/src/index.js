@@ -13,6 +13,7 @@ import RegisterLicence from "./components/RegisterLicense";
 import RentCarPage from "./components/RentCarPage";
 // import Admin from "./components/Admin";
 import BookingDetails from "./components/BookingDetails";
+import TripList from "./components/TripList"
 
 const oauth = {
   // Domain name
@@ -58,6 +59,7 @@ ReactDOM.render(
     <Route exact path="/license" component={RegisterLicence} />
     <Route exact path="/rentpage" component={RentCarPage} />
     <Route exact path="/bookingdetails" component={BookingDetails} />
+    <Route exact path="/tripList" component={TripList} />
   </BrowserRouter>,
   document.getElementById("root")
 );
