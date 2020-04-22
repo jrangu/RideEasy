@@ -14,6 +14,7 @@ import RentCarPage from "./components/RentCarPage";
 // import Admin from "./components/Admin";
 import BookingDetails from "./components/BookingDetails";
 import TripList from "./components/TripList"
+import SearchTrip from "./components/SearchTrip"
 
 const oauth = {
   // Domain name
@@ -59,7 +60,8 @@ ReactDOM.render(
     <Route exact path="/license" component={RegisterLicence} />
     <Route exact path="/rentpage" component={RentCarPage} />
     <Route exact path="/bookingdetails" component={BookingDetails} />
-    <Route exact path="/tripList" component={TripList} />
+    <Route exact path="/TripList" component={TripList} />
+    <Route exact path="/SearchTrip" component={SearchTrip} />
   </BrowserRouter>,
   document.getElementById("root")
 );
