@@ -59,20 +59,20 @@ export default class SearchTrip extends Component {
                     <h6>
                         {" "}
                         Start Location: &nbsp;&nbsp;
-                        <input type="text" id="srcLocation" name="srcLocation" required value={this.state.srcLocation} onChange={this.onInputChange} />
+                        <input type="text" id="srcLocation" name="srcLocation" style={{width:"40%", height:"30px"}} required value={this.state.srcLocation} onChange={this.onInputChange} />
 
                     </h6>
                     <br />
                     <h6>
-                        End Location:&nbsp;&nbsp;
-                        <input type="text" id="destLocation" name="destLocation" required value={this.state.destLocation} onChange={this.onInputChange} />
+                        End Location:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="text" id="destLocation" name="destLocation" style={{width:"40%", height:"30px"}} required value={this.state.destLocation} onChange={this.onInputChange} />
 
                     </h6>
                     <br />
                     <h2>
                         <button
                             style={{
-                                //backgroundColor: "#39CCCC",
+                                backgroundColor: "#39CCCC",
                                 width: "150px",
                                 height: "50px"
                             }}
