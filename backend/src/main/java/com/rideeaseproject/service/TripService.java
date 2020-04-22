@@ -15,4 +15,8 @@ public class TripService {
     public List<Trip> getTrips(){
         return tripRepo.getTrips();
     }
+
+    public  List<Trip> searchTrips(String srcLocation,String destLocation){
+        return  tripRepo.searchTrips(srcLocation,destLocation);
+    }
 }
