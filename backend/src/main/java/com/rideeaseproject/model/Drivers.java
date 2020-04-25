@@ -13,24 +13,24 @@ public class Drivers {
     private int id;
 // TODO foreign key to get id from DriverLicense Table
 
-    private String startLocation;
-    private String endLocation;
-    private int capacity;
-    private int price;
-    private Date journeyDate;
+    private String firstName;
+    private String lastName;
+    private String licenseId;
+    private String email;
+    private long phoneNumber;
 
 
     public Drivers() {
 
     }
 
-    public Drivers(String startLocation, String endLocation, int capacity, int price, Date journeyDate) {
+    public Drivers(String firstName, String lastName, String licenseId,String email, long phoneNumber) {
         super();
-        this.startLocation = startLocation;
-        this.endLocation = endLocation;
-        this.capacity = capacity;
-        this.price = price;
-        this.journeyDate = journeyDate;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.licenseId = licenseId;
+        this.email = email;
+        this.phoneNumber = phoneNumber;
 
     }
 
@@ -42,46 +42,47 @@ public class Drivers {
         this.id = id;
     }
 
-    public String getstartLocation() {
-        return startLocation;
-    }
+	public String getFirstName() {
+		return firstName;
+	}
 
-    public void setstartLocation(String startLocation) {
-        this.startLocation = startLocation;
-    }
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
 
-    public String getendLocation() {
-        return endLocation;
-    }
+	public String getLastName() {
+		return lastName;
+	}
 
-    public void setendLocation(String endLocation) {
-        this.endLocation = endLocation;
-    }
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
 
-    public int getcapacity() {
-        return capacity;
-    }
+	public int getLicenseId() {
+		return licenseId;
+	}
 
-    public void setcapacity(int capacity) {
-        this.capacity = capacity;
-    }
+	public void setLicenseId(int licenseId) {
+		this.licenseId = licenseId;
+	}
 
-    public int getprice() {
-        return price;
-    }
+	public String getEmail() {
+		return email;
+	}
 
-    public void setprice(int price) {
-        this.price = price;
-    }
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
-    public Date getjourneyDate() {
-        return journeyDate;
-    }
+	public long getPhoneNumber() {
+		return phoneNumber;
+	}
 
-    public void setjourneyDate(Date journeyDate) {
-        this.journeyDate = journeyDate;
-    }
+	public void setPhoneNumber(long phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
 
+    
 
 }
 
