@@ -58,11 +58,11 @@ public class Drivers {
 		this.lastName = lastName;
 	}
 
-	public int getLicenseId() {
+	public String getLicenseId() {
 		return licenseId;
 	}
 
-	public void setLicenseId(int licenseId) {
+	public void setLicenseId(String licenseId) {
 		this.licenseId = licenseId;
 	}
 
