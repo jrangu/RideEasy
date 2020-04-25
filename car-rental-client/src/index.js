@@ -15,7 +15,7 @@ import RentCarPage from "./components/RentCarPage";
 import BookingDetails from "./components/BookingDetails";
 import TripList from "./components/TripList"
 import SearchTrip from "./components/SearchTrip"
-
+import AddTrip from "./components/AddTripForm"
 const oauth = {
   // Domain name
   domain: "project3.auth.us-east-2.amazoncognito.com",
@@ -62,6 +62,7 @@ ReactDOM.render(
     <Route exact path="/bookingdetails" component={BookingDetails} />
     <Route exact path="/TripList" component={TripList} />
     <Route exact path="/SearchTrip" component={SearchTrip} />
+    <Route exact path="/AddTripForm" component={AddTrip} />
   </BrowserRouter>,
   document.getElementById("root")
 );
