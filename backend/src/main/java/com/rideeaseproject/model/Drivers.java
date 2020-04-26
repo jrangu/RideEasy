@@ -34,6 +34,9 @@ public class Drivers {
 
     }
 
+	@OneToOne(mappedBy = "drivers")
+	private License license;
+
     public int getId() {
         return id;
     }
