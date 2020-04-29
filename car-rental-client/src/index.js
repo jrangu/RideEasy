@@ -15,7 +15,8 @@ import RentCarPage from "./components/RentCarPage";
 import BookingDetails from "./components/BookingDetails";
 import TripList from "./components/TripList"
 import SearchTrip from "./components/SearchTrip"
-import AddTrip from "./components/AddTripForm"
+import AddTrip from "./components/AddTripForm";
+import { Form } from "antd";
 const oauth = {
   // Domain name
   domain: "project3.auth.us-east-2.amazoncognito.com",
@@ -35,6 +36,7 @@ const oauth = {
   }
 };
 
+const WrappedAddTrip = Form.create({ name: "addTrip" })(AddTrip);
 const authScreenLabels = {
   en: {
     "Sign in with AWS": "Sign in with Microsoft"
@@ -62,7 +64,7 @@ ReactDOM.render(
     <Route exact path="/bookingdetails" component={BookingDetails} />
     <Route exact path="/TripList" component={TripList} />
     <Route exact path="/SearchTrip" component={SearchTrip} />
-    <Route exact path="/AddTripForm" component={AddTrip} />
+    <Route exact path="/AddTrip" component={WrappedAddTrip} />
   </BrowserRouter>,
   document.getElementById("root")
 );

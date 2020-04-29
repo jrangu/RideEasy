@@ -1,6 +1,10 @@
 package com.rideeaseproject.model;
 
 import javax.persistence.*;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
+
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 @Entity
@@ -18,6 +22,8 @@ public class Trip {
     private String end_location;
     private int seatsOffered;
     private Double price;
+    
+    @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd HH:mm:ss")
     private Date startDateTime;
 
     public int getId() {

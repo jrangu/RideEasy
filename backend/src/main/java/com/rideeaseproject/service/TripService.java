@@ -19,4 +19,18 @@ public class TripService {
     public  List<Trip> searchTrips(String srcLocation,String destLocation){
         return  tripRepo.searchTrips(srcLocation,destLocation);
     }
+    
+    public boolean addTrip(Trip TripDetails) {
+    	try {
+    		tripRepo.save(TripDetails);
+			return true;
+		} catch (Exception e) {
+
+		}
+		return false;
+    }
+    
+    
+   
+    
 }
