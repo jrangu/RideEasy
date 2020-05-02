@@ -17,9 +17,9 @@ import java.util.Date;
         private Date expiryDate;
         private Boolean isLicense;
 
-    @OneToOne(cascade = CascadeType.ALL)
-        @JoinColumn(name = "driver_id", referencedColumnName = "id")
-        private Drivers driver;
+//    @OneToOne(cascade = CascadeType.ALL)
+//        @JoinColumn(name = "driver_id", referencedColumnName = "id")
+//        private Drivers driver;
 
     public long getId() {
         return id;
@@ -61,13 +61,13 @@ import java.util.Date;
         isLicense = license;
     }
 
-    public Drivers getDriver() {
-        return driver;
-    }
-
-    public void setDriver(Drivers driver) {
-        this.driver = driver;
-    }
+//    public Drivers getDriver() {
+//        return driver;
+//    }
+//
+//    public void setDriver(Drivers driver) {
+//        this.driver = driver;
+//    }
 
     @Override
     public String toString() {
@@ -77,7 +77,7 @@ import java.util.Date;
                 ", licenseNumber='" + licenseNumber + '\'' +
                 ", expiryDate=" + expiryDate +
                 ", isLicense=" + isLicense +
-                ", driver=" + driver +
+                //", driver=" + driver +
                 '}';
     }
 }
