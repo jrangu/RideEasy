@@ -10,12 +10,12 @@ export default class BookingDetails extends Component {
     super(props);
     this.state = {
       bookingDetails: [],
-      tripDetails: JSON.parse(this.props.location.state.tripDetails),
+      // tripDetails: JSON.parse(this.props.location.state.tripDetails), //uncomment to check the trip details
     };
   }
   componentDidMount() {
     this.reloadFileList();
-    console.log("details from trip list page" + JSON.stringify(this.state.tripDetails));
+    // console.log("details from trip list page" + JSON.stringify(this.state.tripDetails)); //uncomment to check the trip details
   }
 
   reloadFileList = () => {

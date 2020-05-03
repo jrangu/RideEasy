@@ -38,12 +38,7 @@ export default class Navbar extends Component {
           <Row>
             <Col>
               <Nav variant="pills" defaultActiveKey="/">
-                <Nav.Item>
-                  <Nav.Link href="/license">
-                    <h3>Register License</h3>
-                  </Nav.Link>
-                </Nav.Item>
-                <Nav.Item>
+                  <Nav.Item>
                   <Nav.Link href="/SearchTrip">
                     <h3>Book a trip</h3>
                   </Nav.Link>

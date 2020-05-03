@@ -6,9 +6,7 @@ import { Form, DatePicker, Select, Input, Button, Row, Col, Upload} from "antd";
 import config from "../../src/config";
 import axios from "axios";
 import { Auth } from "aws-amplify";
-import Navbar from "./Navbar";
-
-
+import AdminNavbar from "./AdminNavbar";
 const { RangePicker } = DatePicker;
 
 
@@ -91,7 +89,7 @@ export default class AddTripForm extends Component {
 
     return (
       <div>
-         <Navbar />
+         <AdminNavbar />
         <Row className="title-justify-center">
         </Row>
         <h1 align="center" >Add Trip Form</h1>
