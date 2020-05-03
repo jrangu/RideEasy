@@ -12,7 +12,7 @@ public interface TripRepo extends JpaRepository<Trip, Integer> {
     @Query(value = "select * from trip where start_date_time >= curtime()", nativeQuery = true)
     List<Trip> getTrips();
 
-    @Query(value = "select * from trip where start_date_time >= curtime() and end_location like %?1% and start_location like %?2%",
+    @Query(value = "select * from trip where start_date_time >= curtime() and start_location like %?1% and end_location like %?2%",
             nativeQuery = true)
     List<Trip> searchTrips(String srcLocation, String destLocation);
 }
