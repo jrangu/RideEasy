@@ -15,7 +15,7 @@ export default class BookingDetails extends Component {
   }
   componentDidMount() {
     this.reloadFileList();
-    console.log("details from trip list page" + this.state.tripDetails);
+    console.log("details from trip list page" + JSON.stringify(this.state.tripDetails));
   }
 
   reloadFileList = () => {

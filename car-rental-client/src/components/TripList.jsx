@@ -13,7 +13,6 @@ export default class TripList extends Component {
 
   handleBooking = (trip) => {
     var trip = new Object(trip);
-    //  console.log("time " + trip.startDateTime.toLocaleDateString());
 
     this.props.history.push({
       pathname: "/bookingdetails",
@@ -26,7 +25,7 @@ export default class TripList extends Component {
   };
 
   render() {
-    // console.log("time " + this.state.tripList[0].toDateString());
+   
 
     let date = this.state.tripList.map((trip) =>
       new Date(trip.startDateTime).toLocaleString()
@@ -56,7 +55,7 @@ export default class TripList extends Component {
                 <td>
                   {" "}
                   <img
-                    src="https://sp20carrental.s3-us-west-2.amazonaws.com/Car3.jpg"
+                    src={trip.imageURl}
                     width="400"
                     height="200"
                     alt="Vehicle"
@@ -71,8 +70,7 @@ export default class TripList extends Component {
                 <td>{trip.seatsOffered}</td>
 
                 <td>
-                  Driver Name : {trip.driverId.firstName}{" "}
-                  {trip.driverId.lastName}
+                  Driver Name : {trip.driverId.license.fullName}
                   <br></br>
                   Phone Number : {trip.driverId.phoneNumber}
                   <br></br>
