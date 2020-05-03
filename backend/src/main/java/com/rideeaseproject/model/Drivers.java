@@ -13,13 +13,13 @@ public class Drivers {
 
     private String userName;
     private String email;
-    private long phoneNumber;
+    private String phoneNumber;
 
     public Drivers() {
 
     }
     
-	public Drivers(String userName, String email, long phoneNumber, License license) {
+	public Drivers(String userName, String email, String phoneNumber, License license) {
 		super();
 		this.userName = userName;
 		this.email = email;
@@ -64,13 +64,15 @@ public class Drivers {
         this.email = email;
     }
 
-    public long getPhoneNumber() {
-        return phoneNumber;
-    }
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
 
-    public void setPhoneNumber(long phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+
+    
 }
 
 

@@ -29,7 +29,7 @@ public class UserProfileService {
 		}else {
 			Drivers driver = new Drivers();
 			driver.setEmail(email);
-			driver.setPhoneNumber(Long.parseLong(phoneNumber));
+			driver.setPhoneNumber(phoneNumber);
 			driver.setUserName(userName);
 			return driversRepo.save(driver);	
 		}
