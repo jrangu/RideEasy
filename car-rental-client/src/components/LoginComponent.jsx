@@ -16,8 +16,6 @@ class LoginComponent extends React.Component {
   componentDidMount() {
     localStorage.setItem("Email", Auth.user.attributes.email);
     this.checkUser();
-    if (this.state.checkUser == "false") {
-    }
   }
 
   checkUser = () => {
