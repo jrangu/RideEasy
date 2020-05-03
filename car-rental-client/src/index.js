@@ -13,13 +13,13 @@ import RegisterLicence from "./components/RegisterLicense";
 import RentCarPage from "./components/RentCarPage";
 // import Admin from "./components/Admin";
 import BookingDetails from "./components/BookingDetails";
-import TripList from "./components/TripList"
-import SearchTrip from "./components/SearchTrip"
+import TripList from "./components/TripList";
+import SearchTrip from "./components/SearchTrip";
 import AddTrip from "./components/AddTripForm";
 import { Form } from "antd";
 const oauth = {
   // Domain name
-  domain: "project3.auth.us-east-2.amazoncognito.com",
+  domain: "project1.auth.us-east-2.amazoncognito.com",
 
   //client_id: "2q0jdht83jtkap8ipvuk316uvn",
   // Authorized scopes

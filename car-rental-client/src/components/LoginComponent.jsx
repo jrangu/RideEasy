@@ -13,13 +13,14 @@ class LoginComponent extends React.Component {
   }
 
   componentDidMount() {
-    localStorage.setItem("userName", Auth.user.username);
+    console.log(JSON.stringify(Auth.user));
   }
+
   render() {
     if (Auth.user.attributes.name == "Rider") {
-      return <Redirect to="/license" />;
+      return <Redirect to="/SearchTrip" />;
     } else {
-      return <Redirect to="/admin" />;
+      return <Redirect to="/AddTrip" />;
     }
   }
 }
