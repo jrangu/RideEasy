@@ -9,8 +9,8 @@ import java.util.List;
 
 @Repository
 public interface TripRepo extends JpaRepository<Trip, Integer> {
-    @Query(value = "select * from trip where start_date_time >= curtime()", nativeQuery = true)
-    List<Trip> getTrips();
+    @Query(value = "select * from trip where start_date_time >= curtime() and driver_id = ?1", nativeQuery = true)
+    List<Trip> getDriverTrips(int driverId);
 
     @Query(value = "select * from trip where start_date_time >= curtime() and start_location like %?1% and end_location like %?2%",
             nativeQuery = true)

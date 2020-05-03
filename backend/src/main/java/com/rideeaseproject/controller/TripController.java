@@ -30,9 +30,9 @@ public class TripController {
     @Autowired 
     private DriversRepo driversrepo;
 
-    @GetMapping("/getTrips")
-    public List<Trip> getTrips(){
-        return tripService.getTrips();
+    @GetMapping("/getDriverTrips/{email}")
+    public List<Trip> getDriverTrips(@PathVariable String email){
+        return tripService.getDriverTrips(email);
     }
 
     @GetMapping("/searchTrips/{srcLocation}/{destLocation}")
