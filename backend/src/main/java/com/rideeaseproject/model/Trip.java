@@ -26,6 +26,16 @@ public class Trip {
     @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd HH:mm:ss")
     private Date startDateTime;
 
+    public String getImageURl() {
+        return imageURl;
+    }
+
+    public void setImageURl(String imageURl) {
+        this.imageURl = imageURl;
+    }
+
+    private String imageURl;
+
     public int getId() {
         return id;
     }
