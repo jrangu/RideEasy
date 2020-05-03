@@ -1,24 +1,98 @@
 import React, { Component } from "react";
 import Navbar from "./Navbar";
+import Table from "react-bootstrap/Table";
 
 export default class TripList extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-          
-        };
-    }
-    
-    componentDidMount(){
-        console.log("check prev form"+this.props.location.state.data);
-    } 
+  constructor(props) {
+    super(props);
+    this.state = {
+      bookACar: false,
+      tripList: JSON.parse(this.props.location.state.data),
+    };
+  }
 
-    render() {
-        return (
-            <div>
-                <Navbar />
-                <h2>List of Trips</h2>
-            </div>
-        );
-    }
+  handleBooking = (trip) => {
+    var trip = new Object(trip);
+    //  console.log("time " + trip.startDateTime.toLocaleDateString());
+
+    this.props.history.push({
+      pathname: "/bookingdetails",
+      state: {
+        tripDetails: JSON.stringify(trip),
+      },
+    });
+
+    console.log("here at handle booking");
+  };
+
+  render() {
+    // console.log("time " + this.state.tripList[0].toDateString());
+
+    let date = this.state.tripList.map((trip) =>
+      new Date(trip.startDateTime).toLocaleString()
+    );
+
+    return (
+      <React.Fragment>
+        <br />
+        <h2>List Of Trips</h2>
+        <br />
+        <Table striped bordered hover>
+          <thead>
+            <tr>
+              <th>Car</th>
+              <th>Start Location</th>
+              <th>End Location</th>
+              <th>Start Time</th>
+              <th>Trip Price</th>
+              <th>Seats Offered</th>
+              <th>Driver Details</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {this.state.tripList.map((trip) => (
+              <tr key={trip.id}>
+                <td>
+                  {" "}
+                  <img
+                    src="https://sp20carrental.s3-us-west-2.amazonaws.com/Car3.jpg"
+                    width="400"
+                    height="200"
+                    alt="Vehicle"
+                  />
+                </td>
+                <td>{trip.startLocation}</td>
+
+                <td>{trip.endLocation}</td>
+
+                <td>{date}</td>
+                <td>{trip.price}</td>
+                <td>{trip.seatsOffered}</td>
+
+                <td>
+                  Driver Name : {trip.driverId.firstName}{" "}
+                  {trip.driverId.lastName}
+                  <br></br>
+                  Phone Number : {trip.driverId.phoneNumber}
+                  <br></br>
+                </td>
+
+                <td>
+                  <button
+                    onClick={() => this.handleBooking(trip)}
+                    className="btn btn-primary"
+                  >
+                    Book Trip
+                  </button>
+                  <br></br>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </Table>
+      </React.Fragment>
+    );
+  }
+  //   }
 }
