@@ -37,7 +37,8 @@ public class TripController {
             @RequestParam String seatsOffered,
             @RequestParam String price,
             @RequestParam String startDateTime,
-            @RequestParam(value = "file") MultipartFile file
+            @RequestParam(value = "file") MultipartFile file,
+            @RequestParam String email
     ) {
         try {
             Trip trip = new Trip();
@@ -50,15 +51,14 @@ public class TripController {
             Date date = simpleDateFormat.parse(startDateTime);
             trip.setStartDateTime(date);
             trip.setSeatsOffered(Integer.parseInt(seatsOffered));
-            tripService.addTrip(trip, file);
-            if (tripService.addTrip(trip, file) == true) {
+            if (tripService.addTrip(trip, file, email)) {
                 return "Trip added succesfully!";
             } else {
                 return "Error while adding Trip";
             }
         } catch (Exception e) {
             e.printStackTrace();
+            return "Error while adding Trip";
         }
-        return null;
     }
 }

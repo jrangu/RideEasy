@@ -36,30 +36,35 @@ public class TripService {
     @Value("${endpointUrl}")
     private String endpointUrl;
 
-    public List<Trip> getDriverTrips(String email){
+    public List<Trip> getDriverTrips(String email) {
         Drivers driver = driversRepo.getDriverByEmail(email);
-        if(driver == null){
+        if (driver == null) {
             return null;
         }
         int driverId = driver.getId();
         return tripRepo.getDriverTrips(driverId);
     }
 
-    public  List<Trip> searchTrips(String srcLocation,String destLocation){
-        return  tripRepo.searchTrips(srcLocation,destLocation);
+    public List<Trip> searchTrips(String srcLocation, String destLocation) {
+        return tripRepo.searchTrips(srcLocation, destLocation);
     }
-    
-    public boolean addTrip(Trip tripDetails, MultipartFile file) {
-    	try {
+
+    public boolean addTrip(Trip tripDetails, MultipartFile file, String email) {
+        try {
+            Drivers driver = driversRepo.getDriverByEmail(email);
+            if (driver == null) {
+                return false;
+            }
+            tripDetails.setDriverId(driver);
             String imageUrl = uploadFile(file);
             System.out.println("imageurl" + imageUrl);
             tripDetails.setImageURl(imageUrl);
-    		tripRepo.save(tripDetails);
-			return true;
-		} catch (Exception e) {
+            tripRepo.save(tripDetails);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
 
-		}
-		return false;
     }
 
     public String uploadFile(MultipartFile multipartFile) {
@@ -96,6 +101,6 @@ public class TripService {
         }
         return "Uploading Successful ";
     }
-   
-    
+
+
 }

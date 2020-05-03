@@ -52,7 +52,8 @@ export default class AddTripForm extends Component {
     newTrip.append("price", values.price);
     newTrip.append("startDateTime", values.startDateTime);
     newTrip.append("file",this.state.fileSelected);
-    
+    console.log("user email"+localStorage.getItem("Email"));
+    newTrip.append("email",localStorage.getItem("Email"));
     axios
       .post(config.BackendUrl + "addTrip", newTrip)
       .then(function (response) {
