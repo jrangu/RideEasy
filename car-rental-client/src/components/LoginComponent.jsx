@@ -13,7 +13,7 @@ class LoginComponent extends React.Component {
   }
 
   componentDidMount() {
-    console.log(JSON.stringify(Auth.user));
+    localStorage.setItem("Email", Auth.user.attributes.email);
   }
 
   render() {
@@ -41,6 +41,12 @@ export default withAuthenticator(LoginComponent, {
         label: "Role(Driver or Rider)",
         key: "name",
         required: true,
+        type: "string"
+      },
+      {
+        label: "PhoneNumber",
+        key: "custom:lastName",
+        required: false,
         type: "string"
       }
     ]
