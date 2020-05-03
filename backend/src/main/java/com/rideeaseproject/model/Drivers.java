@@ -11,25 +11,32 @@ public class Drivers {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    private String firstName;
-    private String lastName;
+    private String userName;
     private String email;
-    private long phoneNumber;
+    private String phoneNumber;
 
     public Drivers() {
 
     }
+    
+	public Drivers(String userName, String email, String phoneNumber, License license) {
+		super();
+		this.userName = userName;
+		this.email = email;
+		this.phoneNumber = phoneNumber;
+		this.license = license;
+	}
 
-    public Drivers(String firstName, String lastName, License license, String email, long phoneNumber) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.license = license;
-        this.email = email;
-        this.phoneNumber = phoneNumber;
+	public String getUserName() {
+		return userName;
+	}
 
-    }
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
 
-    @OneToOne(cascade = CascadeType.ALL)
+
+	@OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "license_id")
     private License license;
 
@@ -49,22 +56,6 @@ public class Drivers {
         this.id = id;
     }
 
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
     public String getEmail() {
         return email;
     }
@@ -73,13 +64,15 @@ public class Drivers {
         this.email = email;
     }
 
-    public long getPhoneNumber() {
-        return phoneNumber;
-    }
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
 
-    public void setPhoneNumber(long phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    }
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+
+    
 }
 
 
