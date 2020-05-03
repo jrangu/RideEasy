@@ -19,13 +19,13 @@ import AddTrip from "./components/AddTripForm";
 import { Form } from "antd";
 const oauth = {
   // Domain name
-  domain: "project1.auth.us-east-2.amazoncognito.com",
+  domain: "project2.auth.us-east-2.amazoncognito.com",
 
   //client_id: "2q0jdht83jtkap8ipvuk316uvn",
   // Authorized scopes
   scope: ["email", "profile", "openid"],
 
-  redirectSignIn: "http://localhost:3000/license",
+  redirectSignIn: "http://localhost:3000/SearchTrip",
   redirectSignOut: "http://localhost:3000",
   responseType: "code",
 
