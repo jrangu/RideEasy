@@ -9,11 +9,13 @@ export default class BookingDetails extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      bookingDetails: []
+      bookingDetails: [],
+      tripDetails: JSON.parse(this.props.location.state.tripDetails),
     };
   }
   componentDidMount() {
     this.reloadFileList();
+    console.log("details from trip list page" + this.state.tripDetails);
   }
 
   reloadFileList = () => {
@@ -21,22 +23,22 @@ export default class BookingDetails extends Component {
       .get(
         config.BackendUrl + "/listDetails/" + localStorage.getItem("userName")
       )
-      .then(res => {
+      .then((res) => {
         this.setState({ bookingDetails: res.data });
       })
-      .catch(error => {
+      .catch((error) => {
         console.log(error);
         alert("ServerConnection failure");
       });
   };
-  cancelBooking = id => {
+  cancelBooking = (id) => {
     axios
       .delete(config.BackendUrl + "/cancelBooking/" + id)
-      .then(res => {
+      .then((res) => {
         alert(res.data);
         window.location.reload(false);
       })
-      .catch(error => {
+      .catch((error) => {
         console.log(error);
       });
   };
@@ -61,7 +63,7 @@ export default class BookingDetails extends Component {
             </tr>
           </thead>
           <tbody>
-            {this.state.bookingDetails.map(bookingDetails => (
+            {this.state.bookingDetails.map((bookingDetails) => (
               <tr id={bookingDetails.id}>
                 <td>{bookingDetails.license}</td>
                 <td>{bookingDetails.firstname}</td>
