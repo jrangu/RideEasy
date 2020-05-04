@@ -21,10 +21,10 @@ export default class RiderBookingList extends Component {
   }
   componentDidMount() {
    
-    this.loadUserBookingsList();
+    this.loadRiderBookingsList();
   }
 
-  loadUserBookingsList = () => {
+  loadRiderBookingsList = () => {
 
     var email = localStorage.getItem("Email");
     console.log("inside license get" + email);
