@@ -14,6 +14,7 @@ import RentCarPage from "./components/RentCarPage";
 // import Admin from "./components/Admin";
 import BookingDetails from "./components/BookingDetails";
 import TripList from "./components/TripList";
+import DriverTripList from "./components/DriverTripList";
 import SearchTrip from "./components/SearchTrip";
 import AddTrip from "./components/AddTripForm";
 import RiderBookingList from "./components/RiderBookingList";
@@ -66,6 +67,7 @@ ReactDOM.render(
     <Route exact path="/TripList" component={TripList} />
     <Route exact path="/SearchTrip" component={SearchTrip} />
     <Route exact path="/AddTrip" component={WrappedAddTrip} />
+    <Route exact path="/DriverTripList" component={DriverTripList} />
     <Route exact path="/RiderBookingList" component={RiderBookingList} />
   </BrowserRouter>,
   document.getElementById("root")
