@@ -20,15 +20,18 @@ import AddTrip from "./components/AddTripForm";
 import RiderBookingList from "./components/RiderBookingList";
 import RidersForTrip from "./components/RidersForTrip";
 import { Form } from "antd";
+import Azurelogin from "./components/Azurelogin";
+import { Auth } from "aws-amplify";
+
 const oauth = {
   // Domain name
-  domain: "project2.auth.us-east-2.amazoncognito.com",
+  domain: "project1.auth.us-east-2.amazoncognito.com",
 
   //client_id: "2q0jdht83jtkap8ipvuk316uvn",
   // Authorized scopes
   scope: ["email", "profile", "openid"],
 
-  redirectSignIn: "http://localhost:3000/SearchTrip",
+  redirectSignIn: "http://localhost:3000/Azurelogin",
   redirectSignOut: "http://localhost:3000",
   responseType: "code",
 
@@ -58,6 +61,7 @@ amplify.configure({
     oauth: oauth
   }
 });
+
 ReactDOM.render(
   <BrowserRouter>
     <Route exact path="/" component={Loginpage} />
@@ -68,6 +72,7 @@ ReactDOM.render(
     <Route exact path="/TripList" component={TripList} />
     <Route exact path="/SearchTrip" component={SearchTrip} />
     <Route exact path="/AddTrip" component={WrappedAddTrip} />
+    <Route exact path="/Azurelogin" component={Azurelogin} />
     <Route exact path="/driverTrips" component={DriverTripList} />
     <Route exact path="/RiderBookingList" component={RiderBookingList} />
     <Route exact path = "/RidersForTrip" component={RidersForTrip}/>

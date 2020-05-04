@@ -33,5 +33,16 @@ public class UserProfileController {
 		
 		return false;
 	}
+	@GetMapping("/getUserByEmail/{email}")
+	public String getUserByEmail(@PathVariable String email) {
+		
+		if(userProfileService.getUser(email, "Driver")!=null) {
+			return "Driver";
+		}else if(userProfileService.getUser(email, "Rider")!= null) {
+			return "Rider";
+		}
+		
+		return "None";
+	}
 
 }
