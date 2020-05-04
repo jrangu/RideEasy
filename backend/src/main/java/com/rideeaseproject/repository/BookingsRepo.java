@@ -11,13 +11,15 @@ import com.rideeaseproject.model.Riders;
 
 
 @Repository
-public interface BookingsRepo extends JpaRepository<Riders, Integer> {
+public interface BookingsRepo extends JpaRepository<Bookings, Integer> {
 	
 
-    @Query("select b from Bookings b where b.rider.id =?1")
-    public List<Bookings> getBookingsForRider(long rider_id);
+    @Query("select b from Bookings b where b.rider.email =?1")
+    public List<Bookings> getBookingsForRider(String email);
     
+    @Query("select b from Bookings b where b.driver.email =?1")
     
+    public List<Bookings> getRidersForTrip(String email);
   
 
 }

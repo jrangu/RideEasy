@@ -23,15 +23,15 @@ public class BookingsController {
 	private BookingService bookingsService;
 
 
-	private Bookings booking;
+
 			
 
 
 	@GetMapping(path="/bookingsList")
-	public List<Bookings> getBookingsForRider(@RequestParam long rider_id){
+	public List<Bookings> getBookingsForRider(@RequestParam String email){
 	
-		List<Bookings> bookings = bookingsService.getBookingsForRider(rider_id);
-		
+		List<Bookings> bookings = bookingsService.getBookingsForRider(email);
+		System.out.println("controller" + bookings.toString());
 		return bookings;
 	}
 	   
