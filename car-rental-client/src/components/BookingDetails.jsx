@@ -19,9 +19,10 @@ export default class BookingDetails extends Component {
   }
 
   reloadFileList = () => {
+   
     axios
       .get(
-        config.BackendUrl + "/listDetails/" + localStorage.getItem("userName")
+        config.BackendUrl + "listDetails/" + localStorage.getItem("userName")   
       )
       .then((res) => {
         this.setState({ bookingDetails: res.data });

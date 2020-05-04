@@ -1,8 +1,5 @@
 import React, { Component } from "react";
 import Table from "react-bootstrap/Table";
-import { Auth } from "aws-amplify";
-import Navbar from "./Navbar";
-import Button from "react-bootstrap/Button";
 import axios from "axios";
 // import { Auth } from "aws-amplify";
 // import moment from "moment";
@@ -24,10 +21,10 @@ export default class RiderBookingList extends Component {
   }
   componentDidMount() {
    
-    this.loadUserBookingsList();
+    this.loadRiderBookingsList();
   }
 
-  loadUserBookingsList = () => {
+  loadRiderBookingsList = () => {
 
     var email = localStorage.getItem("Email");
     console.log("inside license get" + email);

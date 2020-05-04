@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.rideeaseproject.model.Bookings;
 import com.rideeaseproject.model.Drivers;
 import com.rideeaseproject.model.Riders;
+import com.rideeaseproject.model.Trip;
 import com.rideeaseproject.service.RidersService;
 
 @RestController
@@ -24,15 +25,20 @@ public class RidersController {
 @Autowired
 private RidersService ridersService;
 
-
 private Bookings booking;
+
+
 		
-
-
 @GetMapping(path="/ridersList")
-public List<Riders> getRidersForTrip(@RequestParam String email){
+public List<Riders> getRidersForDriver(@RequestParam String email){
    System.out.println("input trip id in controller" + email);
-	return ridersService.getRidersForTrip(email);
+	return ridersService.getRidersForDriver(email);
+}
+
+@GetMapping(path="/ridersForTrip")
+public List<Riders> getRidersForTrip(@RequestParam String email, @RequestParam int trip_id){
+   System.out.println("input trip id in controller" + email);
+	return ridersService.getRidersForTrip(email, trip_id);
 }
 		
 
