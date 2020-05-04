@@ -68,19 +68,18 @@ export default class RiderBookingList extends Component {
               <th>Driver phone Number</th>
             </tr>
           </thead>
-           <tbody>
-            {this.state.bookings.map(bookings => {
-              return (
-                <tr id={bookings.bookingId}>
-                  <td>{bookings.id}</td>
-                  <td>{bookings.tripId.startLocation}</td>
-                  <td>{bookings.tripId.endLocation}</td>
-                  <td>{bookings.tripId.startDateTime}</td>
+          <tbody>
+          {this.state.bookings.map(bookings => {
+            return (
+                <tr>
+                  <td>{bookings.id}</td>
+                  <td>{bookings.tripId.startLocation}</td>
+                  <td>{bookings.tripId.endLocation}</td>
+                  <td>{bookings.tripId.startDateTime}</td>
                   <td>{bookings.tripId.price}</td>
-                  <td>{bookings.driverId.userName}</td>
+                  <td>{bookings.driverId.userName}</td>
                   <td>{bookings.driverId.phoneNumber}</td>
-
-          </tr>
+                    </tr>
               );
             })}
           </tbody>
