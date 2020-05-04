@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Navbar from "./Navbar";
+import Chatbot from "./Chatbot";
 
 export default class SearchTrip extends Component {
   constructor(props) {
@@ -50,64 +51,67 @@ export default class SearchTrip extends Component {
 
   render() {
     return (
-      <form>
-        <div>
-          {" "}
-          <Navbar name={this.state.username} />
-        </div>
-        <div
-          style={{
-            position: "absolute",
-            left: "15%",
-            top: "25%",
-            width: "600px",
-            transform: "translate(-20%, -20%)"
-          }}
-        >
-          <br />
-          <h2 style={{ font: " serif" }}> SEARCH FOR A TRIP </h2>
-          <br />
-          <h6>
+      <div>
+        <form>
+          <div>
             {" "}
-            Start Location: &nbsp;&nbsp;
-            <input
-              type="text"
-              id="srcLocation"
-              name="srcLocation"
-              style={{ width: "40%", height: "30px" }}
-              required
-              value={this.state.srcLocation}
-              onChange={this.onInputChange}
-            />
-          </h6>
-          <br />
-          <h6>
-            End Location:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <input
-              type="text"
-              id="destLocation"
-              name="destLocation"
-              style={{ width: "40%", height: "30px" }}
-              required
-              value={this.state.destLocation}
-              onChange={this.onInputChange}
-            />
-          </h6>
-          <br />
-          <h2>
-            <button
-              style={{
-                backgroundColor: "#39CCCC",
-                width: "150px",
-                height: "50px"
-              }}
-              onClick={this.callSearchTripApi}
-            >
-              Search
-            </button>
-          </h2>
-        </div>
-      </form>
+            <Navbar name={this.state.username} />
+          </div>
+          <div
+            style={{
+              position: "absolute",
+              left: "15%",
+              top: "25%",
+              width: "600px",
+              transform: "translate(-20%, -20%)"
+            }}
+          >
+            <br />
+            <h2 style={{ font: " serif" }}> SEARCH FOR A TRIP </h2>
+            <br />
+            <h6>
+              {" "}
+              Start Location: &nbsp;&nbsp;
+              <input
+                type="text"
+                id="srcLocation"
+                name="srcLocation"
+                style={{ width: "40%", height: "30px" }}
+                required
+                value={this.state.srcLocation}
+                onChange={this.onInputChange}
+              />
+            </h6>
+            <br />
+            <h6>
+              End Location:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <input
+                type="text"
+                id="destLocation"
+                name="destLocation"
+                style={{ width: "40%", height: "30px" }}
+                required
+                value={this.state.destLocation}
+                onChange={this.onInputChange}
+              />
+            </h6>
+            <br />
+            <h2>
+              <button
+                style={{
+                  backgroundColor: "#39CCCC",
+                  width: "150px",
+                  height: "50px"
+                }}
+                onClick={this.callSearchTripApi}
+              >
+                Search
+              </button>
+            </h2>
+          </div>
+        </form>
+        <Chatbot />
+      </div>
     );
   }
 }
