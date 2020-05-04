@@ -53,6 +53,11 @@ export default class Navbar extends Component {
                   <h3>My trips</h3>
                 </Nav.Link>
               </Nav.Item>
+              <Nav.Item>
+                <Nav.Link href="/RidersForDriver">
+                  <h3>All My riders</h3>
+                </Nav.Link>
+              </Nav.Item>
               </Nav>
           </Col>
           <Col md="auto">
