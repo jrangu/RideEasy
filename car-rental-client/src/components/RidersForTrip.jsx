@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 import Table from "react-bootstrap/Table";
 import axios from "axios";
-// import { Auth } from "aws-amplify";
-// import moment from "moment";
+
 
 
 export default class RidersForTrip extends Component {
@@ -19,10 +18,10 @@ export default class RidersForTrip extends Component {
   }
   componentDidMount() {
    
-    this.loadRidersTripList();
+    this.loadRidersForTrip();
   }
 
-  loadRidersTripList = () => {
+  loadRidersForTrip = () => {
 
     var email = localStorage.getItem("Email");
     console.log("inside license get" + email);
