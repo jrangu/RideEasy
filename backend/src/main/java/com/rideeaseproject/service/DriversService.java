@@ -28,8 +28,9 @@ public class DriversService {
 		System.out.println("in service" );
 		
 		Bookings bookingDetail = bookingsRepo.getDriverConfirmation(email, trip_id);
-		Drivers driver = bookingDetail.getDriverId();
 		
+		Drivers driver = bookingDetail.getDriverId();
+		System.out.println("booking detail id" + bookingDetail.toString());
 		System.out.println("in service details driver " + driver );
 		return driver;
 		
