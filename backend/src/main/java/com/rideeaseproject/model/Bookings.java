@@ -32,4 +32,31 @@ public class Bookings {
 	    public void setId(int id) {
 	        this.id = id;
 	    }
+	    
+	    public Trip getTripId()
+	    {
+	    	return trip;
+	    }
+	    
+	    public Trip setTripId(Trip trip) {
+	    	return this.trip = trip;
+	    }
+	    
+	    public Drivers getDriverId()
+	    {
+	    	return driver;
+	    }
+	    
+	    public Drivers setTripId(Drivers driver) {
+	    	return this.driver = driver;
+	    }
+	    
+	    public Riders getRiderId()
+	    {
+	    	return rider;
+	    }
+	    
+	    public Riders setRiderId(Riders rider) {
+	    	return this.rider = rider;
+	    }
 }
