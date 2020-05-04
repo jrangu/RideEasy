@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Table from "react-bootstrap/Table";
+import { Auth } from "aws-amplify";
 import Navbar from "./Navbar";
 import Button from "react-bootstrap/Button";
 import axios from "axios";
@@ -11,24 +12,42 @@ export default class RiderBookingList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      booking: [],
+      bookings: [],
       startLocation: "",
       endLocation: "",
       startDateTime: "",
+      price:"",
       DriverName: "",
       DriverPhone: ""
 
     };
   }
-//   componentDidMount() {
-//     let currentUser = localStorage.getItem("currentUser");
-//     console.log("currentUser", currentUser)
-//     this.loadUserBookingsList();
-//   }
+  componentDidMount() {
+   
+    this.loadUserBookingsList();
+  }
 
+  loadUserBookingsList = () => {
 
- 
+    var email = localStorage.getItem("Email");
+    console.log("inside license get" + email);
+    axios
+      .get("http://localhost:8080/" + "bookingsList?email=" + email)
+      .then(res => {
+        console.log("response list",res);
+        return res;
+      })
+      .then(result => {
+        console.log("res", result.data);
+        if(result.data) {
+          this.setState({ bookings: result.data });
+        }
 
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  };
   render() {
     return (
 
@@ -49,7 +68,22 @@ export default class RiderBookingList extends Component {
               <th>Driver phone Number</th>
             </tr>
           </thead>
-          
+           <tbody>
+            {this.state.bookings.map(bookings => {
+              return (
+                <tr id={bookings.bookingId}>
+                  <td>{bookings.id}</td>
+                  <td>{bookings.tripId.startLocation}</td>
+                  <td>{bookings.tripId.endLocation}</td>
+                  <td>{bookings.tripId.startDateTime}</td>
+                  <td>{bookings.tripId.price}</td>
+                  <td>{bookings.driverId.userName}</td>
+                  <td>{bookings.driverId.phoneNumber}</td>
+
+          </tr>
+              );
+            })}
+          </tbody>
            
         </Table>
       </div>

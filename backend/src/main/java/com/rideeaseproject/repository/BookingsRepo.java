@@ -14,8 +14,8 @@ import com.rideeaseproject.model.Riders;
 public interface BookingsRepo extends JpaRepository<Riders, Integer> {
 	
 
-    @Query("select b from Bookings b where b.rider.id =?1")
-    public List<Bookings> getBookingsForRider(long rider_id);
+    @Query("select b from Bookings b where b.rider.email =?1")
+    public List<Bookings> getBookingsForRider(String email);
     
     
   
