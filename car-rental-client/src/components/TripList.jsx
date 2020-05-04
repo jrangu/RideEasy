@@ -32,6 +32,8 @@ export default class TripList extends Component {
     );
 
     return (
+      <div>
+      <Navbar name={this.state.username}></Navbar>
       <React.Fragment>
         <br />
         <h2>List Of Trips</h2>
@@ -89,7 +91,8 @@ export default class TripList extends Component {
             ))}
           </tbody>
         </Table>
-      </React.Fragment>
+        </React.Fragment>
+        </div>
     );
   }
   //   }

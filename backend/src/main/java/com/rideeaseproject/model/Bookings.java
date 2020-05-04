@@ -1,18 +1,16 @@
 package com.rideeaseproject.model;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.*;
+
+
+@Entity
+@Table
 
 public class Bookings {
 	   @Id
 	   @GeneratedValue(strategy = GenerationType.IDENTITY)
 	    private int id;
-	   
-	// TODO foreign key to get rider_id, driver_id, trip_id
-//	   Trip id from Trip table
+
 	   @OneToOne
 	   @JoinColumn(name = "trip_id", referencedColumnName = "id")
 	   private Trip trip;
@@ -33,5 +31,32 @@ public class Bookings {
 
 	    public void setId(int id) {
 	        this.id = id;
+	    }
+	    
+	    public Trip getTripId()
+	    {
+	    	return trip;
+	    }
+	    
+	    public Trip setTripId(Trip trip) {
+	    	return this.trip = trip;
+	    }
+	    
+	    public Drivers getDriverId()
+	    {
+	    	return driver;
+	    }
+	    
+	    public Drivers setTripId(Drivers driver) {
+	    	return this.driver = driver;
+	    }
+	    
+	    public Riders getRiderId()
+	    {
+	    	return rider;
+	    }
+	    
+	    public Riders setRiderId(Riders rider) {
+	    	return this.rider = rider;
 	    }
 }
