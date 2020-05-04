@@ -37,6 +37,7 @@ public class TripController {
             @RequestParam String seatsOffered,
             @RequestParam String price,
             @RequestParam String startDateTime,
+            @RequestParam String carNumber,
             @RequestParam(value = "file") MultipartFile file,
             @RequestParam String email
     ) {
@@ -45,6 +46,7 @@ public class TripController {
             trip.setStartLocation(startLocation);
             trip.setEndLocation(endLocation);
             trip.setPrice(Double.parseDouble(price));
+            trip.setCarNumber(carNumber);
             String pattern = "yyyy-MM-dd HH:mm:ss";
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
 

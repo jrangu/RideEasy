@@ -47,6 +47,7 @@ export default class AddTripForm extends Component {
     newTrip.append("startLocation", values.startLocation);
     newTrip.append("endLocation", values.endLocation);
     newTrip.append("seatsOffered", values.seatsOffered);
+    newTrip.append("carNumber", values.carNumber);
     newTrip.append("price", values.price);
     newTrip.append("startDateTime", values.startDateTime);
     newTrip.append("file",this.state.fileSelected);
@@ -113,6 +114,12 @@ export default class AddTripForm extends Component {
             <Form.Item label="Seats Offered">
               {getFieldDecorator('seatsOffered', {
                 rules: [{ required: true, message: 'Please enter your seats offered', whitespace: true }],
+              })
+                (<Input />)}
+            </Form.Item> 
+            <Form.Item label="Car Number">
+              {getFieldDecorator('carNumber', {
+                rules: [{ required: true, message: 'Please enter your car number ', whitespace: true }],
               })
                 (<Input />)}
             </Form.Item>
