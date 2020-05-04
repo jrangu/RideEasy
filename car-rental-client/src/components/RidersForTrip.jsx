@@ -38,28 +38,7 @@ export default class RidersForTrip extends Component {
           this.setState({ riders: result.data });
         }
       })
-    
-    
-    // loadRidersForTrip = () => {
-    
-    //   var email = localStorage.getItem("Email");
-    //   let URL = "http://localhost:8080/" + "ridersList?email=" + email + "&trip_id=3" + 
-    //   fetch(URL)
-    //   .then(response => response.json())
-    //   .then(response => {
-    //     console.log("check search data" + JSON.stringify(response));
-    //     if (JSON.stringify(response) === JSON.stringify([]))  
-    //       // this.props.history.push({
-    //       //   pathname: "/getDriverTrips",
-    //       //   state: {
-    //       //     data: JSON.stringify(response)
-    //       //   }
-    //       // });
-        
-    //   })
-
-
-      .catch(error => {
+   .catch(error => {
         console.log(error);
       });
   };
