@@ -9,9 +9,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.rideeaseproject.model.Bookings;
-import com.rideeaseproject.model.Riders;
+
 import com.rideeaseproject.service.BookingService;
-import com.rideeaseproject.service.RidersService;
+
 
 
 @CrossOrigin("*")

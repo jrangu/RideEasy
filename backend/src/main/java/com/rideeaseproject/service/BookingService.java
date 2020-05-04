@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.rideeaseproject.model.Bookings;
-import com.rideeaseproject.model.Riders;
+
 import com.rideeaseproject.repository.BookingsRepo;
 
 @Service
