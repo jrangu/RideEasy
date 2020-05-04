@@ -32,15 +32,16 @@ export default class SearchTrip extends Component {
       .then(response => response.json())
       .then(response => {
         console.log("check search data" + JSON.stringify(response));
-        // this.setState({
-        //     data: response
-        // });
-        this.props.history.push({
-          pathname: "/TripList",
-          state: {
-            data: JSON.stringify(response)
-          }
-        });
+        if (JSON.stringify(response) === JSON.stringify([])) {
+          alert("No trips found with the search criteria.")
+        } else {
+          this.props.history.push({
+            pathname: "/TripList",
+            state: {
+              data: JSON.stringify(response)
+            }
+          });
+        }
       })
       .catch(error => {
         console.log("Error" + error);
