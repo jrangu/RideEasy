@@ -18,19 +18,16 @@ export default class RidersForTrip extends Component {
     };
   }
   componentDidMount() {
-
-
-    console.log("details from driverTriplist page" + JSON.stringify(this.state.ridersList)); //uncomment to check the trip details
+ console.log("details from driverTriplist page" + JSON.stringify(this.state.ridersList)); //uncomment to check the trip details
 
     this.loadRidersForTrip();
   }
-
   loadRidersForTrip = () => {
-
     var email = localStorage.getItem("Email");
     console.log("inside license get" + email);
+    console.log("trip id ", this.state.ridersList.id)
     axios
-      .get("http://localhost:8080/" + "ridersList?email=" + email)
+      .get("http://localhost:8080/" + "ridersForTrip?email=" + email + "&trip_id=" + this.state.ridersList.id)
       .then(res => {
         console.log("response list", res);
         return res;
@@ -40,8 +37,28 @@ export default class RidersForTrip extends Component {
         if (result.data) {
           this.setState({ riders: result.data });
         }
-
       })
+    
+    
+    // loadRidersForTrip = () => {
+    
+    //   var email = localStorage.getItem("Email");
+    //   let URL = "http://localhost:8080/" + "ridersList?email=" + email + "&trip_id=3" + 
+    //   fetch(URL)
+    //   .then(response => response.json())
+    //   .then(response => {
+    //     console.log("check search data" + JSON.stringify(response));
+    //     if (JSON.stringify(response) === JSON.stringify([]))  
+    //       // this.props.history.push({
+    //       //   pathname: "/getDriverTrips",
+    //       //   state: {
+    //       //     data: JSON.stringify(response)
+    //       //   }
+    //       // });
+        
+    //   })
+
+
       .catch(error => {
         console.log(error);
       });
