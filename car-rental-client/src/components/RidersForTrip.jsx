@@ -13,13 +13,15 @@ export default class RidersForTrip extends Component {
       id: "",
       RiderName: "",
       email: "",
-      phoneNumber:""
+      phoneNumber: "",
+      ridersList: JSON.parse((this.props.location.state.riderDetails))
 
     };
   }
   componentDidMount() {
-   
+
     this.loadRidersTripList();
+    console.log("details from driverTriplist page" + JSON.stringify(this.state.ridersList)); //uncomment to check the trip details
   }
 
   loadRidersTripList = () => {
@@ -29,12 +31,12 @@ export default class RidersForTrip extends Component {
     axios
       .get("http://localhost:8080/" + "ridersList?email=" + email)
       .then(res => {
-        console.log("response list",res);
+        console.log("response list", res);
         return res;
       })
       .then(result => {
         console.log("res", result.data);
-        if(result.data) {
+        if (result.data) {
           this.setState({ riders: result.data });
         }
 
@@ -61,18 +63,18 @@ export default class RidersForTrip extends Component {
             </tr>
           </thead>
           <tbody>
-          {this.state.riders.map(riders=> {
-            return (
+            {this.state.riders.map(riders => {
+              return (
                 <tr>
                   <td>{riders.id}</td>
                   <td>{riders.userName}</td>
                   <td>{riders.email}</td>
                   <td>{riders.phoneNumber}</td>
-                    </tr>
+                </tr>
               );
             })}
           </tbody>
-           
+
         </Table>
       </div>
 
