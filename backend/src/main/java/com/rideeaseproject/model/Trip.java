@@ -22,8 +22,11 @@ public class Trip {
     private String end_location;
     private int seatsOffered;
     private Double price;
+    private String carNumber;
     
-    @JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd HH:mm:ss")
+  
+
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy-MM-dd HH:mm:ss")
     private Date startDateTime;
 
     public String getImageURl() {
@@ -91,6 +94,14 @@ public class Trip {
     public void setStartDateTime(Date startDateTime) {
         this.startDateTime = startDateTime;
     }
+    
+    public String getCarNumber() {
+  		return carNumber;
+  	}
+
+  	public void setCarNumber(String carNumber) {
+  		this.carNumber = carNumber;
+  	}
 
 
 }
