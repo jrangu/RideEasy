@@ -27,7 +27,7 @@ export default class Navbar extends Component {
 
   render() {
     return (
-      <div style={{ backgroundColor: "#C0C0C0" }}>
+      <div style={{ backgroundColor: "#FFC46D" }}>
       <Container>
         <Row className="justify-content-md-center">
           <Badge variant="primary">
