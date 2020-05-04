@@ -16,6 +16,7 @@ import BookingDetails from "./components/BookingDetails";
 import TripList from "./components/TripList";
 import SearchTrip from "./components/SearchTrip";
 import AddTrip from "./components/AddTripForm";
+import RiderBookingList from "./components/RiderBookingList";
 import { Form } from "antd";
 const oauth = {
   // Domain name
@@ -65,6 +66,7 @@ ReactDOM.render(
     <Route exact path="/TripList" component={TripList} />
     <Route exact path="/SearchTrip" component={SearchTrip} />
     <Route exact path="/AddTrip" component={WrappedAddTrip} />
+    <Route exact path="/RiderBookingList" component={RiderBookingList} />
   </BrowserRouter>,
   document.getElementById("root")
 );
