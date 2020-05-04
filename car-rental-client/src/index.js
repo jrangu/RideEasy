@@ -67,7 +67,7 @@ ReactDOM.render(
     <Route exact path="/TripList" component={TripList} />
     <Route exact path="/SearchTrip" component={SearchTrip} />
     <Route exact path="/AddTrip" component={WrappedAddTrip} />
-    <Route exact path="/DriverTripList" component={DriverTripList} />
+    <Route exact path="/driverTrips" component={DriverTripList} />
     <Route exact path="/RiderBookingList" component={RiderBookingList} />
   </BrowserRouter>,
   document.getElementById("root")
