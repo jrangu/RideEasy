@@ -31,12 +31,11 @@ export default class DriverConfirmation extends Component {
   }
   driverDetail =() => {
       var email = localStorage.getItem("Email");
-    //   console.log("obtained data from previous page ", this.props.location.state.tripDetails)
-    //   console.log("obtained trip id from previous page ", this.props.location.state.tripDetails.id)
-    //   console.log("details from booklist page" + JSON.stringify(this.state.trip.id));
+      // console.log("obtained trip id from previous page ", this.props.location.state.tripDetails.id)
+      console.log("details from booklist page" + JSON.stringify(this.state.trip.id));
     //   console.log("details from booklist page" + JSON.stringify(this.state.trip.driverId.license.licenseNumber));
     //   console.log("details from booklist page" + JSON.stringify(this.state.trip.driverId.phoneNumber));
-    //   console.log("details from booklist page" + JSON.stringify(this.state.trip.driverId.license.fullName));
+      console.log("details from booklist page" + JSON.stringify(this.state.trip.carNumber));
       axios
       .get("http://localhost:8080/" + "driverConfirmation?email=" + email + "&trip_id=" + this.state.trip.id)
       .then(res => {
@@ -70,11 +69,13 @@ export default class DriverConfirmation extends Component {
       <Descriptions.Item label="Trip id">
       {this.state.trip.id}
     </Descriptions.Item>
-    <Descriptions.Item label="Driver Name" >{this.state.trip.driverId.license.fullName}</Descriptions.Item>
-    <Descriptions.Item label="Driver Phone">{this.state.trip.driverId.phoneNumber}</Descriptions.Item>
+   
+    <Descriptions.Item label="Driver Name" >{this.state.trip.driverId.license.fullName}</Descriptions.Item>  
+    <Descriptions.Item label="Vehicle Number" >{this.state.trip.carNumber}</Descriptions.Item>
     <Descriptions.Item label="Driver email">{this.state.trip.driverId.email}</Descriptions.Item>
-    <Descriptions.Item label="Driver License Number">{this.state.trip.driverId.license.licenseNumber}</Descriptions.Item>
-    
+    <Descriptions.Item label="Driver Phone">{this.state.trip.driverId.phoneNumber}</Descriptions.Item>
+   <Descriptions.Item label="Driver License Number">{this.state.trip.driverId.license.licenseNumber}</Descriptions.Item>
+  
   </Descriptions>
   </div>
   </div>
