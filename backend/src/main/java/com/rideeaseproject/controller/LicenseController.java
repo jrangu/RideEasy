@@ -4,25 +4,39 @@ import com.rideeaseproject.service.LicenseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
+
+import javax.servlet.http.HttpServletRequest;
+import java.util.Date;
 
 @CrossOrigin("*")
 @RestController
 public class LicenseController {
 
-        @Autowired
-        private LicenseService service;
+    @Autowired
+    private LicenseService service;
 
-        @GetMapping(path = "/checkLabel")
-        public ResponseEntity<?> userDetails(@RequestParam String image)
-        {
-            boolean isDrivingLicense = service.isImageDL(image);
-            if (isDrivingLicense)
-                return ResponseEntity.ok(true);
-            else
-                return new ResponseEntity<>("Image Label Check Failed", HttpStatus.BAD_REQUEST);
-        }
+    @PostMapping(path = "/uploadLC")
+    public ResponseEntity<String> upload(
+            @RequestParam(value = "file") MultipartFile file,
+            @RequestParam String email,
+            @RequestParam String firstName,
+            @RequestParam String lastName,
+            @RequestParam String license,
+            @RequestParam Date expiryDate,
+            HttpServletRequest request) {
+        return ResponseEntity.ok(service.uploadLicenseIfValid(email, file, firstName,lastName,license,expiryDate));
+
+    }
+
+    @GetMapping(path = "/checkLabel")
+    public ResponseEntity<?> userDetails(@RequestParam String image)
+    {
+        boolean isDrivingLicense = service.isImageDL(image);
+        if (isDrivingLicense)
+            return ResponseEntity.ok(true);
+        else
+            return new ResponseEntity<>("Image Label Check Failed", HttpStatus.BAD_REQUEST);
+    }
 }
