@@ -7,6 +7,8 @@ import config from "../../src/config";
 import axios from "axios";
 import { Auth } from "aws-amplify";
 import AdminNavbar from "./AdminNavbar";
+import "./TripForm.css";
+import { callbackify } from "util";
 const { RangePicker } = DatePicker;
 
 
@@ -19,6 +21,7 @@ export default class AddTripForm extends Component {
       setValidated: false,
       fileSelected:''
     };
+    this.seatsOfferedValidator = this.seatsOfferedValidator.bind(this);
     //this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -47,8 +50,10 @@ export default class AddTripForm extends Component {
     newTrip.append("startLocation", values.startLocation);
     newTrip.append("endLocation", values.endLocation);
     newTrip.append("seatsOffered", values.seatsOffered);
+    newTrip.append("carNumber", values.carNumber);
     newTrip.append("price", values.price);
     newTrip.append("startDateTime", values.startDateTime);
+   
     newTrip.append("file",this.state.fileSelected);
     console.log("user email"+localStorage.getItem("Email"));
     newTrip.append("email",localStorage.getItem("Email"));
@@ -81,6 +86,21 @@ export default class AddTripForm extends Component {
     });
   }
 
+  seatsOfferedValidator(rule, value, callback) {
+    if(value > 5) {
+      callback("Number should be less than 5")
+    }
+    return callback();
+  }
+
+  disabledDate(current){
+
+    return current && current.valueOf() < Date.now();
+    
+  }
+ 
+
+
   render() {
     const { getFieldDecorator } = this.props.form;
     // const rangeConfig = {
@@ -112,7 +132,16 @@ export default class AddTripForm extends Component {
 
             <Form.Item label="Seats Offered">
               {getFieldDecorator('seatsOffered', {
-                rules: [{ required: true, message: 'Please enter your seats offered', whitespace: true }],
+                rules: [{ required: true, message: 'Please enter your seats offered', whitespace: true },
+                {
+                  validator: this.seatsOfferedValidator
+                }],
+              })
+                (<Input type="number"/>)}
+            </Form.Item> 
+            <Form.Item label="Car Number">
+              {getFieldDecorator('carNumber', {
+                rules: [{ required: true, message: 'Please enter your car number ', whitespace: true }],
               })
                 (<Input />)}
             </Form.Item>
@@ -121,19 +150,21 @@ export default class AddTripForm extends Component {
                 rules: [{ required: true, message: 'Please enter your price per trip', whitespace: true }],
               })
 
-                (<Input label="Price" />)}
+                (<Input type = "number" />)}
             </Form.Item>
 
             <Form.Item label="Trip Date and Time">
               {getFieldDecorator('startDateTime', {
                 rules: [{ required: true, message: "Please select trip date time!" }]
               })
-
-                (<DatePicker showTime />)}
+              
+                (<DatePicker showTime type = "Date" disabledDate = {this.disabledDate}/>)}
+               
               {/* { <DatePicker showTime 
           // onChange={onChange}
           //  onOk={onOk} 
            /> } */}
+           
 
             </Form.Item>
             <Form.Item label="Upload your car photo" name="image" >

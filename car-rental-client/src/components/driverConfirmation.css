@@ -1,0 +1,31 @@
+
+div.driver_detail {
+  background-color: lightgrey;
+  
+  width: 1000px;
+  border: 15px solid #005f80;
+  padding: 50px;
+  margin-top: 100px;
+  margin-right: 200px;
+  margin-bottom: 200px;
+  margin-left: 600px;
+}
+element.style {
+  background-color: powderblue;
+}
+.ant-descriptions-title {
+
+font-size: 24px;
+}
+.ant-descriptions-item-label{
+  font-size: 18px;
+}
+
+.ant-descriptions-item-content {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+ body {
+    background-color: powderblue;
+  }

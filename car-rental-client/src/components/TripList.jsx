@@ -15,7 +15,7 @@ export default class TripList extends Component {
     var trip = new Object(trip);
 
     this.props.history.push({
-      pathname: "/bookingdetails",
+      pathname: "/driverConfirmation",
       state: {
         tripDetails: JSON.stringify(trip),
       },

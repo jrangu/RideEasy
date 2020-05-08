@@ -20,6 +20,7 @@ import AddTrip from "./components/AddTripForm";
 import RiderBookingList from "./components/RiderBookingList";
 import RidersForTrip from "./components/RidersForTrip";
 import RidersForDriver from "./components/RidersForDriver";
+import DriverConfirmation from "./components/DriverConfirmation";
 import { Form } from "antd";
 import Azurelogin from "./components/Azurelogin";
 import { Auth } from "aws-amplify";
@@ -78,6 +79,7 @@ ReactDOM.render(
     <Route exact path="/RiderBookingList" component={RiderBookingList} />
     <Route exact path = "/RidersForTrip" component={RidersForTrip}/>
     <Route exact path = "/RidersForDriver" component={RidersForDriver}/>
+    <Route exact path = "/DriverConfirmation" component={DriverConfirmation}/>
   </BrowserRouter>,
   document.getElementById("root")
 );
