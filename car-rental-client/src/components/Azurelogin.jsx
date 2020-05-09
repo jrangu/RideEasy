@@ -46,7 +46,14 @@ export default class AzureLogin extends Component {
 
   checkUser = () => {
     axios
-      .get("http://127.0.0.1:8080/" + "getUserByEmail" + "/" + this.state.email)
+      .get(
+        "http://127.0.0.1:8080/" +
+          "getUserByEmail" +
+          "/" +
+          this.state.email +
+          "/" +
+          this.state.role
+      )
       .then(res => {
         if (res.data === "Driver") {
           this.props.history.push("/addTrip");
@@ -71,7 +78,6 @@ export default class AzureLogin extends Component {
     axios
       .post("http://127.0.0.1:8080/" + `/addUser`, formdata)
       .then(res => {
-        console.log(res.data);
         if (this.state.role === "Driver") {
           this.props.history.push("/addTrip");
         } else if (this.state.role === "Rider") {
@@ -96,7 +102,7 @@ export default class AzureLogin extends Component {
       >
         <h3>Enter Phone Number: </h3>
         <input
-          type="text"
+          type="tel"
           id="phoneNumber"
           style={{
             width: "300px",
@@ -113,6 +119,7 @@ export default class AzureLogin extends Component {
             width: "300px",
             height: "50px"
           }}
+          id="Driver"
         >
           <h3>As driver</h3>
         </button>
@@ -125,6 +132,7 @@ export default class AzureLogin extends Component {
             width: "300px",
             height: "50px"
           }}
+          id="Rider"
         >
           <h3>As Rider</h3>{" "}
         </button>

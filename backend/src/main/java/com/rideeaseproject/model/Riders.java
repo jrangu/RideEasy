@@ -11,18 +11,17 @@ public class Riders {
     private String userName;
     private String email;
     private String phoneNumber;
+    private boolean isRegisteredUser;
 
+    public String getUserName() {
+        return userName;
+    }
 
-	public String getUserName() {
-		return userName;
-	}
-	public void setUserName(String userName) {
-		this.userName = userName;
-	}
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
 
-
-
-	public long getId() {
+    public long getId() {
         return id;
     }
 
@@ -45,6 +44,15 @@ public class Riders {
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
+
+    public boolean isRegisteredUser() {
+        return isRegisteredUser;
+    }
+
+    public void setRegisteredUser(boolean registeredUser) {
+        isRegisteredUser = registeredUser;
+    }
+
 }
 
 

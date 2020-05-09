@@ -45,12 +45,17 @@ export default class Navbar extends Component {
                 </Nav.Item>
                 <Nav.Item>
                   <Nav.Link href="/bookingdetails">
-                    <h3>BookingDetails</h3>
+                    <h3>Booking Details</h3>
                   </Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
                   <Nav.Link href="/bookingList">
-                    <h3>BookingList</h3>
+                    <h3>Booking List</h3>
+                  </Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                  <Nav.Link href="/RiderNotification">
+                    <h3>SMS Notifications</h3>
                   </Nav.Link>
                 </Nav.Item>
               </Nav>

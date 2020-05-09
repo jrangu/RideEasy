@@ -1,3 +1,5 @@
 car-rental-client/node_modules
 backend/.idea
 backend/target
+.idea
+target

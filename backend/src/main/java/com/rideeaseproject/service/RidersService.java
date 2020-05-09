@@ -50,4 +50,16 @@ public class RidersService {
 		return ridersList;
 	}
 
+	public String registerForSMS(boolean isRegisteredUser, String email){
+		Riders rider = ridersRepo.getRiderByEmail(email);
+		long riderId =  rider.getId();
+		try {
+			ridersRepo.registerForSMS(isRegisteredUser,riderId);
+			return "Updated SMS registeration";
+		}catch (Exception e){
+			e.printStackTrace();
+			return "Registeration Failed";
+		}
+	}
+
 }
