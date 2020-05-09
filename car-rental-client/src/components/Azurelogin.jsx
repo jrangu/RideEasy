@@ -48,7 +48,7 @@ export default class AzureLogin extends Component {
     axios
       .get(
         "http://127.0.0.1:8080/" +
-          "getUser" +
+          "getUserByEmail" +
           "/" +
           this.state.email +
           "/" +
@@ -108,7 +108,6 @@ export default class AzureLogin extends Component {
             width: "300px",
             height: "50px"
           }}
-          id="phone"
           required
         />
         <br />

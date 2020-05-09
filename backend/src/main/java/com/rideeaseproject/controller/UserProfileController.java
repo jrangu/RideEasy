@@ -4,6 +4,10 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.rideeaseproject.model.Drivers;
+import com.rideeaseproject.model.Riders;
+import com.rideeaseproject.repository.DriversRepo;
+import com.rideeaseproject.repository.RidersRepo;
 import com.rideeaseproject.service.UserProfileService;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,13 +37,15 @@ public class UserProfileController {
 		
 		return false;
 	}
-	@GetMapping("/getUserByEmail/{email}")
-	public String getUserByEmail(@PathVariable String email) {
+	@GetMapping("/getUserByEmail/{email}/{role}")
+	public String getUserByEmail(@PathVariable String email,@PathVariable String role) {
 		
-		if(userProfileService.getUser(email, "Driver")!=null) {
-			return "Driver";
-		}else if(userProfileService.getUser(email, "Rider")!= null) {
-			return "Rider";
+		if(role.equalsIgnoreCase("Driver")) {
+			if(userProfileService.getUser(email, role)!=null) 
+				return "Driver";		
+		}else if(role.equalsIgnoreCase("Rider")){
+			if(userProfileService.getUser(email, role)!=null) 
+				return "Rider";	
 		}
 		
 		return "None";
