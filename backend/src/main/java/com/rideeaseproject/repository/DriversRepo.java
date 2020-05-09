@@ -22,4 +22,10 @@ public interface DriversRepo extends JpaRepository<Drivers, Integer> {
             nativeQuery = true)
     void saveLicenseId(License license, String email);
 
+
+    @Query(value = "select license_id from drivers where email=?1",
+            nativeQuery = true)
+    License checkLicense(String email);
+
 }
+

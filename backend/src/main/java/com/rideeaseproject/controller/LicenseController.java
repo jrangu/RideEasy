@@ -39,4 +39,11 @@ public class LicenseController {
         else
             return new ResponseEntity<>("Image Label Check Failed", HttpStatus.BAD_REQUEST);
     }
+
+    @GetMapping(path = "/checkLicense/{email}")
+    public ResponseEntity<?> checkLicense(@PathVariable String email)
+    {
+        System.out.println("controller checklicense" + email);
+        return ResponseEntity.ok(service.licenseCheck(email));
+    }
 }
