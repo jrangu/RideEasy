@@ -149,4 +149,13 @@ public class LicenseServiceImpl implements LicenseService {
         }
         return isDL;
     }
+
+    @Override
+    public boolean licenseCheck(String email) {
+License check = driversRepo.checkLicense(email);
+if(check!=null)
+    return true;
+else
+    return false;
+    }
 }
