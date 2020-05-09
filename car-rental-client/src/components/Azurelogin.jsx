@@ -108,7 +108,6 @@ export default class AzureLogin extends Component {
             width: "300px",
             height: "50px"
           }}
-          id="phone"
           required
         />
         <br />
