@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import 'antd/dist/antd.css';
-import { Form, DatePicker, Select, Input, Button, Row, Col, Upload} from "antd";
+import { Form, DatePicker, Select, Input, Button, Row, Col, Upload } from "antd";
 //import { UploadOutlined } from '@ant-design/icons';
 // const { Option } = Select;
 import config from "../../src/config";
@@ -19,7 +19,7 @@ export default class AddTripForm extends Component {
       value: "",
       validated: false,
       setValidated: false,
-      fileSelected:''
+      fileSelected: ''
     };
     this.seatsOfferedValidator = this.seatsOfferedValidator.bind(this);
     //this.handleSubmit = this.handleSubmit.bind(this);
@@ -27,22 +27,32 @@ export default class AddTripForm extends Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    this.props.form.validateFieldsAndScroll((err, fieldsValue) => {
-      if (err) {
-        console.log('Error in add trip form ', err);
-      } else {
-        console.log('Ready to Post/Put user record:-', fieldsValue);
-        const rangeValue = fieldsValue["startDateTime"];
-        const values = {
-          ...fieldsValue,
-          startDateTime: rangeValue.format("YYYY-MM-DD hh:mm:ss"),
+    var email = localStorage.getItem("Email");
+    axios
+      .get(config.BackendUrl + "checkLicense/" + email)
+      .then(response => {
+        console.log("add trip check before" + response.data)
+        if (response.data == true) {
+          this.props.form.validateFieldsAndScroll((err, fieldsValue) => {
+            if (err) {
+              console.log('Error in add trip form ', err);
+            } else {
+              console.log('Ready to Post/Put user record:-', fieldsValue);
+              const rangeValue = fieldsValue["startDateTime"];
+              const values = {
+                ...fieldsValue,
+                startDateTime: rangeValue.format("YYYY-MM-DD hh:mm:ss"),
 
-        };
-        console.log('startDateTime:-', values.startDateTime);
-        this.addTrip(values);
-      }
-    });
-
+              };
+              console.log('startDateTime:-', values.startDateTime);
+              this.addTrip(values);
+            }
+          });
+        }
+        else {
+          alert("Please Upload Driver License Before Adding a Trip");
+        }
+      })
   };
 
   addTrip(values) {
@@ -53,10 +63,10 @@ export default class AddTripForm extends Component {
     newTrip.append("carNumber", values.carNumber);
     newTrip.append("price", values.price);
     newTrip.append("startDateTime", values.startDateTime);
-   
-    newTrip.append("file",this.state.fileSelected);
-    console.log("user email"+localStorage.getItem("Email"));
-    newTrip.append("email",localStorage.getItem("Email"));
+
+    newTrip.append("file", this.state.fileSelected);
+    console.log("user email" + localStorage.getItem("Email"));
+    newTrip.append("email", localStorage.getItem("Email"));
     axios
       .post(config.BackendUrl + "addTrip", newTrip)
       .then(function (response) {
@@ -77,7 +87,7 @@ export default class AddTripForm extends Component {
     //this.reloadForm();
   }
 
-  fileUploaded=(e)=>{
+  fileUploaded = (e) => {
     console.log("File uploaded" + e);
     var file = e.target.files[0];
     console.log("File upload image" + file);
@@ -87,18 +97,18 @@ export default class AddTripForm extends Component {
   }
 
   seatsOfferedValidator(rule, value, callback) {
-    if(value > 5) {
+    if (value > 5) {
       callback("Number should be less than 5")
     }
     return callback();
   }
 
-  disabledDate(current){
+  disabledDate(current) {
 
     return current && current.valueOf() < Date.now();
-    
+
   }
- 
+
 
 
   render() {
@@ -109,7 +119,7 @@ export default class AddTripForm extends Component {
 
     return (
       <div>
-         <AdminNavbar />
+        <AdminNavbar />
         <Row className="title-justify-center">
         </Row>
         <h1 align="center" >Add Trip Form</h1>
@@ -137,8 +147,8 @@ export default class AddTripForm extends Component {
                   validator: this.seatsOfferedValidator
                 }],
               })
-                (<Input type="number"/>)}
-            </Form.Item> 
+                (<Input type="number" />)}
+            </Form.Item>
             <Form.Item label="Car Number">
               {getFieldDecorator('carNumber', {
                 rules: [{ required: true, message: 'Please enter your car number ', whitespace: true }],
@@ -150,21 +160,21 @@ export default class AddTripForm extends Component {
                 rules: [{ required: true, message: 'Please enter your price per trip', whitespace: true }],
               })
 
-                (<Input type = "number" />)}
+                (<Input type="number" />)}
             </Form.Item>
 
             <Form.Item label="Trip Date and Time">
               {getFieldDecorator('startDateTime', {
                 rules: [{ required: true, message: "Please select trip date time!" }]
               })
-              
-                (<DatePicker showTime type = "Date" disabledDate = {this.disabledDate}/>)}
-               
+
+                (<DatePicker showTime type="Date" disabledDate={this.disabledDate} />)}
+
               {/* { <DatePicker showTime 
           // onChange={onChange}
           //  onOk={onOk} 
            /> } */}
-           
+
 
             </Form.Item>
             <Form.Item label="Upload your car photo" name="image" >
@@ -173,16 +183,16 @@ export default class AddTripForm extends Component {
               })
 
                 (
-                <input
-                  type="file"
-                  className="file-select"
-                  accept="image/*"
-                  onChange={this.fileUploaded}
-                />
-              )}
+                  <input
+                    type="file"
+                    className="file-select"
+                    accept="image/*"
+                    onChange={this.fileUploaded}
+                  />
+                )}
             </Form.Item>
-            
-             
+
+
             <Form.Item>
               <Button type="primary" htmlType="submit" >Submit </Button>
             </Form.Item>

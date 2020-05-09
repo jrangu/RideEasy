@@ -49,7 +49,9 @@ export default class RegisterLicense extends Component {
   };
 
 
-  submitVehicleDetails = (event) => {
+  submitLicense = (event) => {
+    event.preventDefault();
+
     var file = this.state.filesSelected;
     console.log("Uploading file to server");
     console.log(file.name);
@@ -77,22 +79,25 @@ export default class RegisterLicense extends Component {
         }
       };
 
+      console.log("result license before request ");
+
       axios
         .post(config.BackendUrl + "/uploadLC", formData, configure)
         .then(response1 => {
-          console.log("result " + response1.data);
+          console.log("result license" + response1.data);
           if (response1.data == "valid") {
             this.props.history.push({
               pathname: "/AddTrip"
             });
           }
           else {
+            console.log("result license error ");
             alert("Oops.. Looks like you haven't uploaded a driver's license. Please upload again")
           }
 
         })
         .catch(error => {
-          console.log(error);
+          console.log("result license error " + error);
 
           alert("Please upload a valid DL Image");
 
@@ -198,7 +203,7 @@ export default class RegisterLicense extends Component {
               <Button
                 variant="primary"
                 type="submit"
-                onClick={this.submitVehicleDetails}
+                onClick={this.submitLicense}
               >
                 Submit
           </Button>
