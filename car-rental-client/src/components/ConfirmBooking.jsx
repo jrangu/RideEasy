@@ -33,6 +33,7 @@ export default class ConfirmBooking extends Component {
       bookingData.append("driverId", trip.driverId.id);
       axios
         .post(config.BackendUrl + "addBooking", bookingData)
+        .then(response => response)
         .then(response => {
           let res = response;
           console.log("res****", res);
@@ -41,22 +42,23 @@ export default class ConfirmBooking extends Component {
             console.log("checking111" + response);
             alert("Server error")
             this.setState({ open: false });
-            window.location = "/TripList";
+           // window.location = "/TripList";
           } else {
-            console.log("checking" + res);
+            console.log("checking" + res.data);
             this.props.history.push({
-              pathname: "/driverConfirmation",
+              pathname: "/DriverConfirmation",
               state: {
-                tripDetails: JSON.stringify(res.data)
+                bookingId: res.data
+                // data: JSON.stringify(res)
               }
             });
           }
         })
         .catch(error => {
-          console.log("Error " + JSON.stringify(error));
+          console.log("Error confirm booking" + JSON.stringify(error));
           alert("Server error")
           this.setState({ open: false });
-          window.location = "/TripList";
+          //window.location = "/TripList";
         });
       console.log("here at handle booking");
     };

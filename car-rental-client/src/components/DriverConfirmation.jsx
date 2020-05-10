@@ -19,8 +19,11 @@ export default class DriverConfirmation extends Component {
       email: "",
       phoneNumber: "",
       licenseNumber: "",
-      trip: JSON.parse(this.props.location.state.tripDetails)
-      
+      bookingId: this.props.location.state.bookingId,
+      bookingDetails: {},
+      //trip: JSON.parse(this.props.location.state.tripDetails)
+      trip: {}
+      //bookingData: JSON.parse(this.props.location.state.data)
 
     };
   }
@@ -30,7 +33,9 @@ export default class DriverConfirmation extends Component {
     this.driverDetail();
     // console.log("details from trip list page" + JSON.stringify(this.state.tripDetails)); //uncomment to check the trip details
   }
+
   driverDetail =() => {
+    console.log("bookingId", this.state.bookingId);
       var email = localStorage.getItem("Email");
       // console.log("obtained trip id from previous page ", this.props.location.state.tripDetails.id)
       console.log("details from booklist page" + JSON.stringify(this.state.trip.id));
@@ -38,7 +43,7 @@ export default class DriverConfirmation extends Component {
     //   console.log("details from booklist page" + JSON.stringify(this.state.trip.driverId.phoneNumber));
       console.log("details from booklist page" + JSON.stringify(this.state.trip.carNumber));
       axios
-      .get("http://localhost:8080/" + "driverConfirmation?email=" + email + "&trip_id=" + this.state.trip.id)
+      .get("http://localhost:8080/" + "getBookingById/" + this.state.bookingId)
       .then(res => {
         console.log("response list", res);
         return res;
@@ -46,7 +51,7 @@ export default class DriverConfirmation extends Component {
       .then(result => {
         console.log("res", result.data);
         if (result.data) {
-          this.setState({ drivers: result.data });
+          this.setState({ bookingDetails: result.data });
         }
       })
    .catch(error => {
@@ -55,6 +60,17 @@ export default class DriverConfirmation extends Component {
   };
 
   render() {
+    var bookingDetails = new Object(this.state.bookingDetails);
+    console.log("details is", bookingDetails )
+    // console.log("seats id is", this.state.bookingDetails.tripId.seatsOffered)
+    console.log("this.state.bookingId", this.state.bookingId);
+    console.log("this.state.bookingDetails", this.state.bookingDetails);
+    console.log("booking id is", this.state.bookingDetails.id)
+    console.log("Trip id is", this.state.bookingDetails.tripId)
+    console.log("Driver details is", this.state.bookingDetails.driverId)
+    // console.log("Driver details is", this.state.bookingDetails.driverId.carNumber)
+    var data = this.state.bookingDetails.tripId
+    console.log("printing data", data)
     return (
       
  <div>
@@ -69,14 +85,17 @@ export default class DriverConfirmation extends Component {
           <div class = "driver_detail" align = "left">
       <Descriptions  title="Driver  Contact Details" >
       <Descriptions.Item label="Trip id">
-      {this.state.trip.id}
+      {data ? data.id: ""}
     </Descriptions.Item>
    
-    <Descriptions.Item label="Driver Name" >{this.state.trip.driverId.license.fullName}</Descriptions.Item>  
-    <Descriptions.Item label="Vehicle Number" >{this.state.trip.carNumber}</Descriptions.Item>
-    <Descriptions.Item label="Driver email">{this.state.trip.driverId.email}</Descriptions.Item>
-    <Descriptions.Item label="Driver Phone">{this.state.trip.driverId.phoneNumber}</Descriptions.Item>
-   <Descriptions.Item label="Driver License Number">{this.state.trip.driverId.license.licenseNumber}</Descriptions.Item>
+    <Descriptions.Item label="Driver Name" >{data ? data.driverId.license.fullName : ""}</Descriptions.Item>  
+    <Descriptions.Item label="Vehicle Number" >{data ? data.carNumber : ""}</Descriptions.Item>
+ <Descriptions.Item label="Driver email">{data ? data.driverId.email : ""}</Descriptions.Item>
+    <Descriptions.Item label="Driver Phone">{data ? data.driverId.phoneNumber : ""}</Descriptions.Item>
+   <Descriptions.Item label="Driver License Number">{data ? data.driverId.license.licenseNumber : ""}</Descriptions.Item>
+     <Descriptions.Item label="Start Location " >{data ? data.startLocation : ""}</Descriptions.Item>  
+       <Descriptions.Item label="End Location " >{data ? data.endLocation : ""}</Descriptions.Item> 
+         <Descriptions.Item label="Trip Start time" >{data ? data.startDateTime : ""}</Descriptions.Item>   
   
   </Descriptions>
   </div>
