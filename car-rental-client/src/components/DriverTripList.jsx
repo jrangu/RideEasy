@@ -57,10 +57,7 @@ export default class DriverTripList extends Component {
 
   render() {
 
-    let date = this.state.rideList.map((ride) => 
-      new Date(ride.startDateTime).toLocaleString()
-    );
-
+    
     return (
       <div>
         <AdminNavbar name={this.state.username}></AdminNavbar>
@@ -96,8 +93,8 @@ export default class DriverTripList extends Component {
 
                   <td>{ride.endLocation}</td>
 
-                  <td>{date}</td>
-                  <td>{ride.price}</td>
+                  <td>{new Date(ride.startDateTime).toLocaleString()}</td>
+                  <td>${ride.price}</td>
                   <td>{ride.seatsOffered}</td>
 
                   <td>
@@ -111,12 +108,12 @@ export default class DriverTripList extends Component {
                     <br></br>
                     <br></br>
                     <br></br>
-                    <button
+                    {/* <button
                       onClick={() => this.handleCancel(ride)}
                       className="btn btn-danger"
                     >
                       Cancel Trip
-                    </button>
+                    </button> */}
                   </td>
                 </tr>
               ))}
