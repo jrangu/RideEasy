@@ -25,7 +25,7 @@ public interface DriversRepo extends JpaRepository<Drivers, Integer> {
 
     @Query(value = "select license_id from drivers where email=?1",
             nativeQuery = true)
-    License checkLicense(String email);
+    Long checkLicense(String email);
 
 }
 
