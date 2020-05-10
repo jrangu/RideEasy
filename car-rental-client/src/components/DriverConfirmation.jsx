@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import 'antd/dist/antd.css';
-import { Descriptions} from "antd";
+import { Descriptions,Button} from "antd";
 import "./driverConfirmation.css"
 import axios from "axios"
 import Navbar from "./Navbar";
@@ -37,11 +37,7 @@ export default class DriverConfirmation extends Component {
   driverDetail =() => {
     console.log("bookingId", this.state.bookingId);
       var email = localStorage.getItem("Email");
-      // console.log("obtained trip id from previous page ", this.props.location.state.tripDetails.id)
-      console.log("details from booklist page" + JSON.stringify(this.state.trip.id));
-    //   console.log("details from booklist page" + JSON.stringify(this.state.trip.driverId.license.licenseNumber));
-    //   console.log("details from booklist page" + JSON.stringify(this.state.trip.driverId.phoneNumber));
-      console.log("details from booklist page" + JSON.stringify(this.state.trip.carNumber));
+
       axios
       .get("http://localhost:8080/" + "getBookingById/" + this.state.bookingId)
       .then(res => {
@@ -62,17 +58,14 @@ export default class DriverConfirmation extends Component {
   render() {
     var bookingDetails = new Object(this.state.bookingDetails);
     console.log("details is", bookingDetails )
-    // console.log("seats id is", this.state.bookingDetails.tripId.seatsOffered)
     console.log("this.state.bookingId", this.state.bookingId);
     console.log("this.state.bookingDetails", this.state.bookingDetails);
     console.log("booking id is", this.state.bookingDetails.id)
     console.log("Trip id is", this.state.bookingDetails.tripId)
     console.log("Driver details is", this.state.bookingDetails.driverId)
-    // console.log("Driver details is", this.state.bookingDetails.driverId.carNumber)
     var data = this.state.bookingDetails.tripId
-    console.log("printing data", data)
     return (
-      
+
  <div>
          <Navbar name={this.state.username} />
           <br>
@@ -80,7 +73,6 @@ export default class DriverConfirmation extends Component {
           <br></br>
           <h2  >  Driver Details Confirmation</h2>
           <br></br>
-      
           <h4 align = "left">Your Trip has been successfully booked !!! Please find the driver details below... </h4>
           <div class = "driver_detail" align = "left">
       <Descriptions  title="Driver  Contact Details" >
@@ -99,7 +91,9 @@ export default class DriverConfirmation extends Component {
   
   </Descriptions>
   </div>
+  <Button href="/SearchTrip" type="primary" htmlType="submit" style={{ align: "center"  }}  >OK </Button>
   </div>
+ 
     );
   }
 }
