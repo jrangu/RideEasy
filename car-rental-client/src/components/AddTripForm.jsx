@@ -97,8 +97,15 @@ export default class AddTripForm extends Component {
   }
 
   seatsOfferedValidator(rule, value, callback) {
-    if (value > 5) {
-      callback("Number should be less than 5")
+    if (value > 5 || value<1) {
+      callback("Number should be between 1 and 5")
+    }
+    return callback();
+  }
+
+  priceValidator(rule,value,callback){
+    if (value<0){
+      callback("Price should be atleast 0")
     }
     return callback();
   }
@@ -140,9 +147,9 @@ export default class AddTripForm extends Component {
               })(<Input />)}
             </Form.Item>
 
-            <Form.Item label="Seats Offered">
+            <Form.Item label="Seats Offered" >
               {getFieldDecorator('seatsOffered', {
-                rules: [{ required: true, message: 'Please enter your seats offered', whitespace: true },
+                rules: [{ required: true, message: 'Please enter your seats offered', whitespace: true  },
                 {
                   validator: this.seatsOfferedValidator
                 }],
@@ -157,7 +164,10 @@ export default class AddTripForm extends Component {
             </Form.Item>
             <Form.Item label="Price" name="price" >
               {getFieldDecorator('price', {
-                rules: [{ required: true, message: 'Please enter your price per trip', whitespace: true }],
+                rules: [{ required: true, message: 'Please enter your price per trip', whitespace: true },
+                {
+                  validator: this.priceValidator
+                }],
               })
 
                 (<Input type="number" />)}
