@@ -18,9 +18,9 @@ public interface DriversRepo extends JpaRepository<Drivers, Integer> {
 
     @Transactional
     @Modifying
-    @Query(value = "update drivers set license_id= ?1 where email=?2",
+    @Query(value = "update drivers set license_id= ?1 where id=?2",
             nativeQuery = true)
-    void saveLicenseId(License license, String email);
+    void saveLicenseId(License license, int id);
 
 
     @Query(value = "select license_id from drivers where email=?1",

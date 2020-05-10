@@ -10,6 +10,7 @@ import com.amazonaws.AmazonServiceException;
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.model.CannedAccessControlList;
 import com.amazonaws.services.s3.model.PutObjectRequest;
+import com.rideeaseproject.model.Drivers;
 import com.rideeaseproject.model.License;
 import com.rideeaseproject.repository.DriversRepo;
 import com.rideeaseproject.repository.LicenseRepo;
@@ -68,7 +69,8 @@ public class LicenseServiceImpl implements LicenseService {
             license1.setLicense(true);
             license1.setLicenseNumber(license);
             licenseRepo.save(license1);
-            driversRepo.saveLicenseId(license1,email);
+           Drivers driver =  driversRepo.getDriverByEmail(email);
+            driversRepo.saveLicenseId(license1,driver.getId());
             return result;
         }
         else
