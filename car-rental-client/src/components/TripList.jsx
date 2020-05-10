@@ -72,7 +72,7 @@ export default class TripList extends Component {
                 <td>{trip.seatsOffered}</td>
 
                 <td>
-                  Driver Name : {trip.driverId.license.fullName}
+                  Driver Name : {trip.driverId.fullName}
                   <br></br>
                   Phone Number : {trip.driverId.phoneNumber}
                   <br></br>

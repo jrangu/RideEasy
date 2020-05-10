@@ -3,6 +3,7 @@ import 'antd/dist/antd.css';
 import { Descriptions} from "antd";
 import "./driverConfirmation.css"
 import axios from "axios"
+import Navbar from "./Navbar";
 
 
 
@@ -55,17 +56,18 @@ export default class DriverConfirmation extends Component {
 
   render() {
     return (
+      
  <div>
+         <Navbar name={this.state.username} />
           <br>
           </br>
-          <h1 align = "center">Driver Details Confirmation</h1>
           <br></br>
+          <h2  >  Driver Details Confirmation</h2>
           <br></br>
-          <h4 align = "center">Your Trip has been successfully booked !!! Please find the driver details below... </h4>
-         
-       
-          <div class = "driver_detail" align = "center">
-      <Descriptions title="Driver  Contact Details">
+      
+          <h4 align = "left">Your Trip has been successfully booked !!! Please find the driver details below... </h4>
+          <div class = "driver_detail" align = "left">
+      <Descriptions  title="Driver  Contact Details" >
       <Descriptions.Item label="Trip id">
       {this.state.trip.id}
     </Descriptions.Item>

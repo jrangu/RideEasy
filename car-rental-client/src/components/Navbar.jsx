@@ -49,7 +49,7 @@ export default class Navbar extends Component {
                   </Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                  <Nav.Link href="/bookingList">
+                  <Nav.Link href="/RiderBookingList">
                     <h3>Booking List</h3>
                   </Nav.Link>
                 </Nav.Item>

@@ -8,7 +8,8 @@ div.driver_detail {
   margin-top: 100px;
   margin-right: 200px;
   margin-bottom: 200px;
-  margin-left: 600px;
+  margin-left: 100px;
+
 }
 element.style {
   background-color: powderblue;
@@ -28,4 +29,11 @@ font-size: 24px;
 
  body {
     background-color: powderblue;
+   
+  }
+  h2{
+    margin-left: 100px;
+  }
+  h4{
+    margin-left: 100px;
   }

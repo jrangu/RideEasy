@@ -25,7 +25,7 @@ export default class DriverTripList extends Component {
     axios
       .get(SERVER_URI + '/getDriverTrips/' + email)
       .then((response) => {
-        console.log(JSON.stringify(response));
+        console.log("ridelist" + JSON.stringify(response));
         this.setState({ rideList: response.data })
       })
       .catch((error) => {
@@ -57,7 +57,7 @@ export default class DriverTripList extends Component {
 
   render() {
 
-    let date = this.state.rideList.map((ride) =>
+    let date = this.state.rideList.map((ride) => 
       new Date(ride.startDateTime).toLocaleString()
     );
 

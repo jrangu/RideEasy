@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Table from "react-bootstrap/Table";
 import axios from "axios";
 // import { Auth } from "aws-amplify";
-// import moment from "moment";
+import Navbar from "./Navbar"
 
 
 export default class RiderBookingList extends Component {
@@ -49,6 +49,7 @@ export default class RiderBookingList extends Component {
     return (
 
       <div>
+         <Navbar name={this.state.username} />
         <br></br>
         <h3 align="center">Riders Bookings List</h3>
         <br />
