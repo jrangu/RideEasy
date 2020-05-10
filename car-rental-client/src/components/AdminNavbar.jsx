@@ -6,6 +6,7 @@ import Row from "react-bootstrap/Row";
 import { Button } from "react-bootstrap";
 import { Auth } from "aws-amplify";
 import Badge from "react-bootstrap/Badge";
+import Chatbot from "./Chatbot";
 
 export default class Navbar extends Component {
   constructor(props) {
@@ -28,47 +29,47 @@ export default class Navbar extends Component {
   render() {
     return (
       <div style={{ backgroundColor: "#FFC46D" }}>
-      <Container>
-        <Row className="justify-content-md-center">
-          <Badge variant="primary">
-            <h1>Car Rental</h1>
-          </Badge>
-        </Row>
-        <br />
-        <Row>
-          <Col>
-            <Nav variant="pills" defaultActiveKey="/">
-              <Nav.Item>
-                <Nav.Link href="/license">
-                  <h3>Register License</h3>
-                </Nav.Link>
-              </Nav.Item>
-              <Nav.Item>
-                <Nav.Link href="/AddTrip">
-                  <h3>Add trip</h3>
-                </Nav.Link>
+        <Container>
+          <Row className="justify-content-md-center">
+            <Badge variant="primary">
+              <h1>Car Rental</h1>
+            </Badge>
+          </Row>
+          <br />
+          <Row>
+            <Col>
+              <Nav variant="pills" defaultActiveKey="/">
+                <Nav.Item>
+                  <Nav.Link href="/license">
+                    <h3>Register License</h3>
+                  </Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                <Nav.Link href="/driverTrips">
-                  <h3>My trips</h3>
-                </Nav.Link>
-              </Nav.Item>
-              <Nav.Item>
-                <Nav.Link href="/RidersForDriver">
-                  <h3>All My riders</h3>
-                </Nav.Link>
-              </Nav.Item>
+                  <Nav.Link href="/AddTrip">
+                    <h3>Add trip</h3>
+                  </Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                  <Nav.Link href="/driverTrips">
+                    <h3>My trips</h3>
+                  </Nav.Link>
+                </Nav.Item>
+                <Nav.Item>
+                  <Nav.Link href="/RidersForDriver">
+                    <h3>All My riders</h3>
+                  </Nav.Link>
+                </Nav.Item>
               </Nav>
-          </Col>
-          <Col md="auto">
-            <Button onClick={this.signOut} href="/" className="signOutButton">
-              <h3>SignOut</h3>
-            </Button>
-          </Col>
-        </Row>
-      </Container>
-    </div>
-            
+            </Col>
+            <Col md="auto">
+              <Button onClick={this.signOut} href="/" className="signOutButton">
+                <h3>SignOut</h3>
+              </Button>
+            </Col>
+          </Row>
+        </Container>
+        <Chatbot />
+      </div>
     );
   }
 }
