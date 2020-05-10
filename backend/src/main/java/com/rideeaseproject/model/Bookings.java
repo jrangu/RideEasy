@@ -47,7 +47,7 @@ public class Bookings {
 	    	return driver;
 	    }
 	    
-	    public Drivers setTripId(Drivers driver) {
+	    public Drivers setDriverId(Drivers driver) {
 	    	return this.driver = driver;
 	    }
 	    

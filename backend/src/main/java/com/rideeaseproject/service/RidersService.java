@@ -55,10 +55,10 @@ public class RidersService {
 		long riderId =  rider.getId();
 		try {
 			ridersRepo.registerForSMS(isRegisteredUser,riderId);
-			return "Updated SMS registeration";
+			return "Updated SMS registration";
 		}catch (Exception e){
 			e.printStackTrace();
-			return "Registeration Failed";
+			return "Registration Failed";
 		}
 	}
 

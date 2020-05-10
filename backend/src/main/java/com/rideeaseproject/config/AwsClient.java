@@ -7,6 +7,8 @@ import com.amazonaws.services.rekognition.AmazonRekognition;
 import com.amazonaws.services.rekognition.AmazonRekognitionClientBuilder;
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.AmazonS3ClientBuilder;
+import com.amazonaws.services.sns.AmazonSNS;
+import com.amazonaws.services.sns.AmazonSNSClientBuilder;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -42,6 +44,16 @@ public class AwsClient {
                 .standard()
                 .withRegion(region)
                 .withCredentials(new AWSStaticCredentialsProvider(credential))
+                .build();
+    }
+
+    @Bean
+    public AmazonSNS amazonSNS() {
+        AWSCredentials awsCredss = new BasicAWSCredentials(accessKey, secretKey);
+        return AmazonSNSClientBuilder
+                .standard()
+                .withCredentials(new AWSStaticCredentialsProvider(awsCredss))
+                .withRegion("us-east-1")
                 .build();
     }
 }
