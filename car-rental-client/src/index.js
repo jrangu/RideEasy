@@ -24,6 +24,7 @@ import DriverConfirmation from "./components/DriverConfirmation";
 import { Form } from "antd";
 import Azurelogin from "./components/Azurelogin";
 import { Auth } from "aws-amplify";
+import RiderNotification from "./components/RiderNotification"
 
 const oauth = {
   // Domain name
@@ -80,6 +81,7 @@ ReactDOM.render(
     <Route exact path = "/RidersForTrip" component={RidersForTrip}/>
     <Route exact path = "/RidersForDriver" component={RidersForDriver}/>
     <Route exact path = "/DriverConfirmation" component={DriverConfirmation}/>
+    <Route exact path = "/RiderNotification" component={RiderNotification}/>
   </BrowserRouter>,
   document.getElementById("root")
 );
