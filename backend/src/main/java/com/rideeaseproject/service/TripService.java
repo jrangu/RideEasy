@@ -102,9 +102,4 @@ public class TripService {
         return "Uploading Successful ";
     }
 
-    public Trip subtractSeatsOffered(int tripId){
-        return tripRepo.updateSeatsOffered(tripId);
-    }
-
-
 }
