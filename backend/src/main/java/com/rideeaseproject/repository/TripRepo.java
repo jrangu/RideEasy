@@ -2,9 +2,11 @@ package com.rideeaseproject.repository;
 
 import com.rideeaseproject.model.Trip;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 @Repository
@@ -16,6 +18,8 @@ public interface TripRepo extends JpaRepository<Trip, Integer> {
             nativeQuery = true)
     List<Trip> searchTrips(String srcLocation, String destLocation);
 
+    @Transactional
+    @Modifying
     @Query(value="update trip set seats_offered = seats_offered-1 where id = ?1",nativeQuery = true)
-    Trip updateSeatsOffered(int tripId);
+    void updateSeatsOffered(int tripId);
 }

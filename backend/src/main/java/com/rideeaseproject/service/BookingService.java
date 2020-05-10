@@ -43,9 +43,9 @@ public class BookingService {
         return booking;
     }
 
-    public Bookings getBookingById(int id){
+    public Bookings getBookingById(int id) {
         Optional<Bookings> booking = bookingsRepo.findById(id);
-        if(booking.isPresent()){
+        if (booking.isPresent()) {
             return booking.get();
         }
         return null;
@@ -65,16 +65,13 @@ public class BookingService {
                 if (rider.isRegisteredUser()) {
                     sendSMSMessage(newBooking);
                 }
-                //return "Booking successful";
-               return newBooking.getId();
-
+                tripRepo.updateSeatsOffered(tripId);
+                return newBooking.getId();
             } else {
-                //return "Cannot book now. Server error";
                 return -1;
             }
         } catch (Exception e) {
             e.printStackTrace();
-            //return "Cannot book now. Server error";
             return -1;
         }
     }
