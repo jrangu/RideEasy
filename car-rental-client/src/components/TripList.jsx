@@ -26,10 +26,6 @@ export default class TripList extends Component {
   };
 
   render() {
-    let date = this.state.tripList.map(trip =>
-      new Date(trip.startDateTime).toLocaleString()
-    );
-
     return (
       <div>
         <Navbar name={this.state.username}></Navbar>
@@ -66,8 +62,8 @@ export default class TripList extends Component {
 
                   <td>{trip.endLocation}</td>
 
-                  <td>{date}</td>
-                  <td>{trip.price}</td>
+                  <td>{ new Date(trip.startDateTime).toLocaleString()}</td>
+                  <td>${trip.price}</td>
                   <td>{trip.seatsOffered}</td>
 
                 <td>
