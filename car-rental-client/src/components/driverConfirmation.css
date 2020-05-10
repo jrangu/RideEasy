@@ -46,7 +46,8 @@ font-size: 24px;
   .ant-btn-primary {
   /* font-size: 18px; */
     width: 150px;
-    margin-left: 550px;
+    margin-left: 450px;
+    margin-top: 30px;
     height: 50px;
     text-align: center;
   /* padding: 5px 15px 5px; */

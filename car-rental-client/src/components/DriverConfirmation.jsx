@@ -88,10 +88,11 @@ export default class DriverConfirmation extends Component {
      <Descriptions.Item label="Start Location " >{data ? data.startLocation : ""}</Descriptions.Item>  
        <Descriptions.Item label="End Location " >{data ? data.endLocation : ""}</Descriptions.Item> 
          <Descriptions.Item label="Trip Start time" >{data ? data.startDateTime : ""}</Descriptions.Item>   
-  
+
   </Descriptions>
-  </div>
   <Button href="/SearchTrip" type="primary" htmlType="submit" style={{ align: "center"  }}  >OK </Button>
+  </div>
+  
   </div>
  
     );
