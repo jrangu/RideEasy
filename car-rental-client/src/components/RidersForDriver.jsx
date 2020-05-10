@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Table from "react-bootstrap/Table";
 import axios from "axios";
+import Navbar from "./AdminNavbar"
 
 
 
@@ -44,6 +45,7 @@ export default class RidersForDriver extends Component {
     return (
 
       <div>
+                <Navbar name={this.state.username} />
         <br></br>
         <h3 align="center">Riders List For this Trip</h3>
         <br />

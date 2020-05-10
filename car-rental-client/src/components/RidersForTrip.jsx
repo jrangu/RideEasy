@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Table from "react-bootstrap/Table";
 import axios from "axios";
+import Navbar from "./AdminNavbar"
 
 
 
@@ -8,11 +9,11 @@ export default class RidersForTrip extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      riders: [],
-      id: "",
-      RiderName: "",
-      email: "",
-      phoneNumber: "",
+        riders: [],
+        id: "",
+        RiderName: "",
+        email: "",
+        phoneNumber: "",
       ridersList: JSON.parse((this.props.location.state.riderDetails))
 
     };
@@ -46,6 +47,7 @@ export default class RidersForTrip extends Component {
     return (
 
       <div>
+        <Navbar name={this.state.username} />
         <br></br>
         <h3 align="center">Riders List For this Trip</h3>
         <br />
