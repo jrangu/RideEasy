@@ -6,6 +6,7 @@ import Row from "react-bootstrap/Row";
 import { Button } from "react-bootstrap";
 import { Auth } from "aws-amplify";
 import Badge from "react-bootstrap/Badge";
+import Chatbot from "./Chatbot";
 
 export default class Navbar extends Component {
   constructor(props) {
@@ -38,7 +39,7 @@ export default class Navbar extends Component {
           <Row>
             <Col>
               <Nav variant="pills" defaultActiveKey="/">
-                  <Nav.Item>
+                <Nav.Item>
                   <Nav.Link href="/SearchTrip">
                     <h3>Book a trip</h3>
                   </Nav.Link>
@@ -67,6 +68,7 @@ export default class Navbar extends Component {
             </Col>
           </Row>
         </Container>
+        <Chatbot />
       </div>
     );
   }
