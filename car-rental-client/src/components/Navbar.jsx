@@ -28,11 +28,11 @@ export default class Navbar extends Component {
 
   render() {
     return (
-      <div style={{ backgroundColor: "#C0C0C0" }}>
+      <div style={{ backgroundColor: "#07a4ffc4"  }} >
         <Container>
-          <Row className="justify-content-md-center">
+          <Row className="justify-content-md-center" >
             <Badge variant="primary">
-              <h1>Car Rental</h1>
+              <h1 >Car Rental</h1>
             </Badge>
           </Row>
           <br />
@@ -42,11 +42,6 @@ export default class Navbar extends Component {
                 <Nav.Item>
                   <Nav.Link href="/SearchTrip">
                     <h3>Book a trip</h3>
-                  </Nav.Link>
-                </Nav.Item>
-                <Nav.Item>
-                  <Nav.Link href="/bookingdetails">
-                    <h3>Booking Details</h3>
                   </Nav.Link>
                 </Nav.Item>
                 <Nav.Item>

@@ -60,13 +60,16 @@ export default class SearchTrip extends Component {
           <div
             style={{
               position: "absolute",
-              left: "15%",
+              left: "10%",
               top: "25%",
               width: "600px",
               transform: "translate(-20%, -20%)"
             }}
           >
             <br />
+            <br></br>
+            <br></br>
+            <br></br>
             <h2 style={{ font: " serif" }}> SEARCH FOR A TRIP </h2>
             <br />
             <h6>
