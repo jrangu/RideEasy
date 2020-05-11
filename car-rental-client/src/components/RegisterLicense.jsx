@@ -8,6 +8,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import AdminNavbar from "./AdminNavbar";
 import config from "../../src/config";
 import { Redirect } from "react-router-dom";
+import moment from 'moment';
 
 export default class RegisterLicense extends Component {
   constructor(props) {
@@ -22,6 +23,29 @@ export default class RegisterLicense extends Component {
       fileSubmitted: false,
 
     };
+  }
+
+  componentDidMount = () =>{
+    var email = localStorage.getItem("Email");
+    axios
+      .get('http://localhost:8080/getLicense/' + email)
+      .then((response) => {
+        console.log("checking" + JSON.stringify(response));
+        console.log("date"+moment(response.data.expiryDate).format('MM/DD/YYYY')+" "+new Date(response.data.expiryDate));
+        let date = moment(response.data.expiryDate).format('MM/DD/YYYY');
+        this.setState({ 
+          firstName: response.data.fullName,
+          license : response.data.licenseNumber,
+          expiryDate: new Date(response.data.expiryDate)
+         })
+      })
+      .catch((error) => {
+        console.log(error);
+        alert("Server Error");
+        this.setState({ 
+          expiryDate: new Date()
+         })
+      });
   }
 
   handlefirstNameChange = (event) => {
