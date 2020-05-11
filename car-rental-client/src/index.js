@@ -34,8 +34,8 @@ const oauth = {
   // Authorized scopes
   scope: ["email", "profile", "openid"],
 
-  redirectSignIn: "https://rideeasy.filestorage-manishayacham.com/Azurelogin",
-  redirectSignOut: "https://rideeasy.filestorage-manishayacham.com/",
+  redirectSignIn: 'https://rideeasy.filestorage-manishayacham.com/Azurelogin',
+  redirectSignOut: 'https://rideeasy.filestorage-manishayacham.com/',
   responseType: "code",
 
   // optional, for Cognito hosted ui specified options
