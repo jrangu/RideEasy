@@ -12,6 +12,7 @@ import { callbackify } from "util";
 const { RangePicker } = DatePicker;
 
 
+
 export default class AddTripForm extends Component {
   constructor(props) {
     super(props);
@@ -46,6 +47,7 @@ export default class AddTripForm extends Component {
               };
               console.log('startDateTime:-', values.startDateTime);
               this.addTrip(values);
+            
             }
           });
         }
@@ -72,10 +74,15 @@ export default class AddTripForm extends Component {
       .then(function (response) {
         console.log("response", response);
         return response;
+
       })
       .then(data => {
         console.log(data);
         alert(data.data);
+          this.props.history.push({
+            
+                pathname: "/driverTrips"
+              });
       })
       .catch(function (error) {
         console.log("Error " + JSON.stringify(error));
