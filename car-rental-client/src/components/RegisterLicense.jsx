@@ -9,7 +9,6 @@ import AdminNavbar from "./AdminNavbar";
 import config from "../../src/config";
 import { Redirect } from "react-router-dom";
 import moment from 'moment';
-import config from "../../src/config";
 
 export default class RegisterLicense extends Component {
   constructor(props) {
