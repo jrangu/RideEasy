@@ -1,0 +1,19 @@
+body.main-screen{
+    text-align: center;
+    margin-top: 20px;
+    margin: 5% auto 50px;
+    background-image: url(".././image/Cars.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+
+}
+div.nav.nav-pills{
+
+ 
+        display: flex;
+        flex-wrap: wrap;
+        margin-right: -15px;
+        margin-left: 50px;
+  
+
+}

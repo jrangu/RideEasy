@@ -44,7 +44,7 @@ export default class ListPage extends Component {
     return (
       <div>
         <Widget
-          title="Car-Rental"
+          title="Ride-Easy"
           subtitle="ChatBot"
           senderPlaceHolder="Type a message..."
           background-color="blue"
