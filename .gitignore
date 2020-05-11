@@ -3,3 +3,4 @@ backend/.idea
 backend/target
 .idea
 target
+/backend/src/main/resources/application.properties
