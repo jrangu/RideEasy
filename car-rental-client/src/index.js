@@ -28,7 +28,7 @@ import RiderNotification from "./components/RiderNotification"
 
 const oauth = {
   // Domain name
-  domain: "project1.auth.us-east-2.amazoncognito.com",
+  domain: "rideeasy1.filestorage-manishayacham.com",
 
   //client_id: "2q0jdht83jtkap8ipvuk316uvn",
   // Authorized scopes
