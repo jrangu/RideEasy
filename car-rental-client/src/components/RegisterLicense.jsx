@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import DatePicker from "react-datepicker";
 import { subDays } from "date-fns";
 import Form from "react-bootstrap/Form";
+import { Row } from "antd";
 import Button from "react-bootstrap/Button";
 import axios from "axios";
 import "react-datepicker/dist/react-datepicker.css";
@@ -25,26 +26,26 @@ export default class RegisterLicense extends Component {
     };
   }
 
-  componentDidMount = () =>{
+  componentDidMount = () => {
     var email = localStorage.getItem("Email");
     axios
-      .get(config.BackendUrl+'getLicense/' + email)
+      .get(config.BackendUrl + 'getLicense/' + email)
       .then((response) => {
         console.log("checking" + JSON.stringify(response));
-        console.log("date"+moment(response.data.expiryDate).format('MM/DD/YYYY')+" "+new Date(response.data.expiryDate));
+        console.log("date" + moment(response.data.expiryDate).format('MM/DD/YYYY') + " " + new Date(response.data.expiryDate));
         let date = moment(response.data.expiryDate).format('MM/DD/YYYY');
-        this.setState({ 
+        this.setState({
           firstName: response.data.fullName,
-          license : response.data.licenseNumber,
+          license: response.data.licenseNumber,
           expiryDate: new Date(response.data.expiryDate)
-         })
+        })
       })
       .catch((error) => {
         console.log(error);
         // alert("Server Error");
-        this.setState({ 
+        this.setState({
           expiryDate: new Date()
-         })
+        })
       });
   }
 
@@ -150,14 +151,11 @@ export default class RegisterLicense extends Component {
       return (
         <div>
           <AdminNavbar />
-          <div style={{
-            position: "absolute",
-            left: "15%",
-            top: "35%",
-            width: "1000px",
-            transform: "translate(-20%, -20%)",
-          }}>
-            <h3> Register your License here</h3>
+          <Row className="title-justify-center">
+          </Row>
+          <h1 align="center" >Register your License here</h1>
+          <br></br>
+          <Row type="flex" justify="center" align="middle">
             <Form>
               <Form.Row>
                 <Form.Group controlId="licenseService">
@@ -175,6 +173,7 @@ export default class RegisterLicense extends Component {
                   </div>
                 </Form.Group>
               </Form.Row>
+              <br></br>
               <Form.Row>
                 <Form.Group controlId="firstName">
                   <Form.Label>
@@ -236,8 +235,9 @@ export default class RegisterLicense extends Component {
               <br></br>
               <br></br>
             </Form>
-          </div>
+          </Row>
         </div>
+
       );
     }
   }
