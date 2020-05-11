@@ -31,9 +31,9 @@ export default class Navbar extends Component {
       <div style={{ backgroundColor: "#07a4ffc4" }}>
         <Container>
           <Row className="justify-content-md-center">
-            <Badge variant="primary">
-              <h1>Car Rental</h1>
-            </Badge>
+            {/* <Badge variant="primary"> */}
+              <h1>Ride Easy</h1>
+            {/* </Badge> */}
           </Row>
           <br />
           <Row>

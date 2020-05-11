@@ -204,7 +204,7 @@ export default class AddTripForm extends Component {
 
 
             <Form.Item>
-              <Button type="primary" htmlType="submit" >Submit </Button>
+              <Button  className="trip-submit" type="primary" htmlType="submit" align = "left" >Submit </Button>
             </Form.Item>
           </Form>
         </Row>
