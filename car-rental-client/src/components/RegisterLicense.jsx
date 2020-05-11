@@ -41,7 +41,7 @@ export default class RegisterLicense extends Component {
       })
       .catch((error) => {
         console.log(error);
-        alert("Server Error");
+        // alert("Server Error");
         this.setState({ 
           expiryDate: new Date()
          })

@@ -74,7 +74,6 @@ export default class AddTripForm extends Component {
       .then(function (response) {
         console.log("response", response);
         return response;
-
       })
       .then(data => {
         console.log(data);

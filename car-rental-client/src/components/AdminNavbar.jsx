@@ -57,7 +57,7 @@ export default class Navbar extends Component {
               </Nav>
             </Col>
             <Col md="auto">
-              <Button onClick={this.signOut} href="/" className="signOutButton">
+              <Button onClick={this.signOut} href="/" className="signOutButton" style={{ backgroundColor: "#07a4ffc4"  }}>
                 <h3>SignOut</h3>
               </Button>
             </Col>

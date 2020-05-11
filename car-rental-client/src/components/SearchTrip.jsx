@@ -103,7 +103,7 @@ export default class SearchTrip extends Component {
             <h2>
               <button
                 style={{
-                  backgroundColor: "#39CCCC",
+                  backgroundColor: "#07a4ffc4",
                   width: "150px",
                   height: "50px"
                 }}
