@@ -13,7 +13,7 @@ export default class Loginpage extends Component {
 
         <Row className="justify-content-md-center">
           {/* <Badge variant="primary"> */}
-            <h1>Ride-Easy</h1>
+            <h1>Ride Easy</h1>
           {/* </Badge> */}
         </Row>
         <Login />
