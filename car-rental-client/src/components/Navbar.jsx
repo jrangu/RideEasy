@@ -40,7 +40,7 @@ export default class Navbar extends Component {
             <Col>
               <Nav variant="pills" defaultActiveKey="/">
                 <Nav.Item>
-                  <Nav.Link href="/SearchTrip">
+                  <Nav.Link href="/Searchtrip">
                     <h3>Book a trip</h3>
                   </Nav.Link>
                 </Nav.Item>
