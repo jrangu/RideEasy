@@ -24,6 +24,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -148,5 +149,15 @@ public class LicenseServiceImpl implements LicenseService {
     @Override
     public boolean licenseCheck(String email) {
         return driversRepo.checkLicense(email) != null;
+    }
+
+    @Override
+    public  License getLicenseByEmail(String email){
+        long licenseId = driversRepo.checkLicense(email);
+        Optional<License> license= licenseRepo.findById(licenseId);
+        if(license.isPresent()){
+            return license.get();
+        }
+        return null;
     }
 }

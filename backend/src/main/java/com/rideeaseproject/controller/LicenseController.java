@@ -1,5 +1,6 @@
 package com.rideeaseproject.controller;
 
+import com.rideeaseproject.model.License;
 import com.rideeaseproject.service.LicenseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -45,5 +46,10 @@ public class LicenseController {
     {
         System.out.println("controller checklicense" + email);
         return ResponseEntity.ok(service.licenseCheck(email));
+    }
+
+    @GetMapping(path = "/getLicense/{email}")
+    public License getLicense(@PathVariable String email){
+        return service.getLicenseByEmail(email);
     }
 }

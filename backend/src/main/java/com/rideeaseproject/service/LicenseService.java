@@ -1,5 +1,6 @@
 package com.rideeaseproject.service;
 
+import com.rideeaseproject.model.License;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.Date;
@@ -11,4 +12,6 @@ public interface LicenseService {
     boolean isImageDL(String s3Key);
 
     boolean licenseCheck(String email);
+
+    License getLicenseByEmail(String email);
 }

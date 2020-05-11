@@ -81,6 +81,9 @@ public class BookingService {
             String message = "Booking confirmation number is " + newBooking.getId() + ". Driver's contact: " + newBooking.getDriverId().getPhoneNumber();
             String phoneNumber = newBooking.getRiderId().getPhoneNumber();
             Map<String, MessageAttributeValue> smsAttributes = new HashMap<String, MessageAttributeValue>();
+            smsAttributes.put("AWS.SNS.SMS.SenderID", new MessageAttributeValue()
+                    .withStringValue("RideEase") //The sender ID shown on the device.
+                    .withDataType("String"));
             PublishResult result = amazonSNS.publish(new PublishRequest()
                     .withMessage(message)
                     .withPhoneNumber(phoneNumber)

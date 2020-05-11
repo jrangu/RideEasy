@@ -53,7 +53,7 @@ public class AwsClient {
         return AmazonSNSClientBuilder
                 .standard()
                 .withCredentials(new AWSStaticCredentialsProvider(awsCredss))
-                .withRegion("us-east-1")
+                .withRegion("us-west-2")
                 .build();
     }
 }
