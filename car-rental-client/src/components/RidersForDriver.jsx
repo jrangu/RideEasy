@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Table from "react-bootstrap/Table";
 import axios from "axios";
 import Navbar from "./AdminNavbar"
+import config from "../../src/config";
 
 
 
@@ -26,7 +27,7 @@ export default class RidersForDriver extends Component {
     var email = localStorage.getItem("Email");
     console.log("inside license get" + email);
     axios
-      .get("http://localhost:8080/" + "ridersList?email=" + email)
+      .get(config.BackendUrl + "ridersList?email=" + email)
       .then(res => {
         console.log("response list", res);
         return res;

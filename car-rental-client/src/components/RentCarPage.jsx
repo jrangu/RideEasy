@@ -56,7 +56,7 @@ class RentCarPage extends Component {
       userName: localStorage.getItem("userName")
     };
     axios
-      .post(config.BackendUrl + "/bookacar", postPayload)
+      .post(config.BackendUrl + "bookacar", postPayload)
       .then(function(response) {
         console.log("response", response);
         return response;

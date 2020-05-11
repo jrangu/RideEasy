@@ -4,5 +4,5 @@
     "USER_POOL_ID": "us-east-2_OPQjj7QWC",
     "APP_CLIENT_ID": "2q0jdht83jtkap8ipvuk316uvn"
   },
-  "BackendUrl": "http://127.0.0.1:8080/"
+  "BackendUrl": "https://backend.filestorage-manishayacham.com:8443/"
 }

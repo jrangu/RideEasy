@@ -2,8 +2,9 @@ import React, { Component } from "react";
 import AdminNavbar from "./AdminNavbar";
 import Table from "react-bootstrap/Table";
 import axios from "axios";
+import config from "../../src/config";
 
-const SERVER_URI = "http://localhost:8080";
+const SERVER_URI = config.BackendUrl;
 
 export default class DriverTripList extends Component {
   constructor(props) {
