@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Table from "react-bootstrap/Table";
 import axios from "axios";
 import Navbar from "./AdminNavbar"
+import config from "../../src/config";
 
 
 
@@ -28,7 +29,7 @@ export default class RidersForTrip extends Component {
     console.log("inside license get" + email);
     console.log("trip id ", this.state.ridersList.id)
     axios
-      .get("http://localhost:8080/" + "ridersForTrip?email=" + email + "&trip_id=" + this.state.ridersList.id)
+      .get(config.BackendUrl + "ridersForTrip?email=" + email + "&trip_id=" + this.state.ridersList.id)
       .then(res => {
         console.log("response list", res);
         return res;

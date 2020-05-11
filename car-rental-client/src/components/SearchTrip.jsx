@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Navbar from "./Navbar";
 import Chatbot from "./Chatbot";
+import config from "../../src/config";
 
 export default class SearchTrip extends Component {
   constructor(props) {
@@ -24,8 +25,8 @@ export default class SearchTrip extends Component {
 
   callSearchTripApi = event => {
     event.preventDefault();
-    let URL =
-      "http://localhost:8080/searchTrips/" +
+    let URL = config.BackendUrl +
+      "searchTrips/" +
       this.state.srcLocation +
       "/" +
       this.state.destLocation;

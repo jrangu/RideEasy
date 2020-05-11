@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import Table from "react-bootstrap/Table";
 import axios from "axios";
 // import { Auth } from "aws-amplify";
-import Navbar from "./Navbar"
+import Navbar from "./Navbar";
+import config from "../../src/config";
 
 
 export default class RiderBookingList extends Component {
@@ -29,7 +30,7 @@ export default class RiderBookingList extends Component {
     var email = localStorage.getItem("Email");
     console.log("inside license get" + email);
     axios
-      .get("http://localhost:8080/" + "bookingsList?email=" + email)
+      .get(config.BackendUrl + "bookingsList?email=" + email)
       .then(res => {
         console.log("response list",res);
         return res;

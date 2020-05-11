@@ -4,6 +4,7 @@ import { Auth } from "aws-amplify";
 import RentCarPage from "./RentCarPage";
 import { Redirect } from "react-router-dom";
 import axios from "axios";
+import config from "../../src/config";
 
 class LoginComponent extends React.Component {
   constructor(props, context) {
@@ -21,7 +22,7 @@ class LoginComponent extends React.Component {
   checkUser = () => {
     axios
       .get(
-        "http://127.0.0.1:8080/" +
+        config.BackendUrl +
           "getUser" +
           "/" +
           Auth.user.attributes.email +
@@ -47,7 +48,7 @@ class LoginComponent extends React.Component {
     formdata.append("phoneNumber", Auth.user.attributes.phone_number);
 
     axios
-      .post("http://127.0.0.1:8080/" + `/addUser`, formdata)
+      .post(config.BackendUrl + `/addUser`, formdata)
       .then(res => {
         console.log(res.data);
       })

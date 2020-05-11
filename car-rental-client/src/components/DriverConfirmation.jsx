@@ -4,7 +4,7 @@ import { Descriptions,Button} from "antd";
 import "./driverConfirmation.css"
 import axios from "axios"
 import Navbar from "./Navbar";
-
+import config from "../../src/config";
 
 
 export default class DriverConfirmation extends Component {
@@ -39,7 +39,7 @@ export default class DriverConfirmation extends Component {
       var email = localStorage.getItem("Email");
 
       axios
-      .get("http://localhost:8080/" + "getBookingById/" + this.state.bookingId)
+      .get(config.BackendUrl + "getBookingById/" + this.state.bookingId)
       .then(res => {
         console.log("response list", res);
         return res;

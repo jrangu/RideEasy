@@ -9,6 +9,7 @@ import AdminNavbar from "./AdminNavbar";
 import config from "../../src/config";
 import { Redirect } from "react-router-dom";
 import moment from 'moment';
+import config from "../../src/config";
 
 export default class RegisterLicense extends Component {
   constructor(props) {
@@ -28,7 +29,7 @@ export default class RegisterLicense extends Component {
   componentDidMount = () =>{
     var email = localStorage.getItem("Email");
     axios
-      .get('http://localhost:8080/getLicense/' + email)
+      .get(config.BackendUrl+'getLicense/' + email)
       .then((response) => {
         console.log("checking" + JSON.stringify(response));
         console.log("date"+moment(response.data.expiryDate).format('MM/DD/YYYY')+" "+new Date(response.data.expiryDate));

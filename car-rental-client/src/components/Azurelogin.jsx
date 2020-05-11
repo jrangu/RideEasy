@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Auth } from "aws-amplify";
 import axios from "axios";
 import { Spinner } from "react-bootstrap";
+import config from "../../src/config";
 
 export default class AzureLogin extends Component {
   constructor(props) {
@@ -47,7 +48,7 @@ export default class AzureLogin extends Component {
   checkUser = () => {
     axios
       .get(
-        "http://127.0.0.1:8080/" +
+        config.BackendUrl+
           "getUserByEmail" +
           "/" +
           this.state.email +
@@ -76,7 +77,7 @@ export default class AzureLogin extends Component {
     formdata.append("phoneNumber", this.state.phoneNumber);
 
     axios
-      .post("http://127.0.0.1:8080/" + `/addUser`, formdata)
+      .post(config.BackendUrl + `/addUser`, formdata)
       .then(res => {
         if (this.state.role === "Driver") {
           this.props.history.push("/addTrip");
