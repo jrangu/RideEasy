@@ -46,7 +46,7 @@ export default class Navbar extends Component {
                 </Nav.Item>
                 <Nav.Item>
                   <Nav.Link href="/AddTrip">
-                    <h3>Add trip</h3>
+                    <h3>Add Trip</h3>
                   </Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
