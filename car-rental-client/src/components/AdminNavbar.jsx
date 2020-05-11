@@ -36,7 +36,7 @@ export default class Navbar extends Component {
             {/* </Badge> */}
           </Row>
           <br />
-          <Row>
+          <Row className = "navbar">
             <Col>
               <Nav variant="pills" defaultActiveKey="/">
                 <Nav.Item>
@@ -52,11 +52,6 @@ export default class Navbar extends Component {
                 <Nav.Item>
                   <Nav.Link href="/driverTrips">
                     <h3>My trips</h3>
-                  </Nav.Link>
-                </Nav.Item>
-                <Nav.Item>
-                  <Nav.Link href="/RidersForDriver">
-                    <h3>All My riders</h3>
                   </Nav.Link>
                 </Nav.Item>
               </Nav>
