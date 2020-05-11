@@ -22,10 +22,24 @@ export default class ListPage extends Component {
     console.log(`New message incoming! ${newMessage}`);
     // Now send the message throught the backend API
 
+    // axios
+    //   .post(config.BackendUrl + "/chatbot/" + newMessage)
+    //   .then(res => {
+
+    var message = new FormData();
+    message.append("message", newMessage);
+
     axios
-      .post(config.BackendUrl + "/chatbot/" + newMessage)
+      .post("https://2zs6m2ajt7.execute-api.us-east-1.amazonaws.com/stage/chatbot", {
+        "message": newMessage
+      }, {
+        headers: {
+          "Content-Type": "application/json"
+        }
+      })
       .then(res => {
-        this.state.message = res.data;
+        console.log("Response  - " + res.data.body);
+        this.state.message = res.data.body;
         if (this.state.message === "") {
           addResponseMessage("Chat bot services are currently not avaialable");
         } else if (this.state.message === "EnterUserName") {
