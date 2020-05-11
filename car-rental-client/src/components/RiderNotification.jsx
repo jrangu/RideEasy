@@ -66,11 +66,12 @@ export default class RiderNotification extends Component {
                         <br />
                         <h4>
                             <button
+
                                 style={{
-                                    backgroundColor: "#39CCCC",
+                                    backgroundColor: "#07a4ffc4",
                                     width: "150px",
                                     height: "50px"
-                                }}
+                                  }}
                                 onClick={this.callRegisterApi}
                             >
                                 Confirm
