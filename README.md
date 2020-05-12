@@ -21,8 +21,17 @@ This is a web based car pooling application which is developed is to provide use
 * Test Cases - Junit
 * Database - MySQL - Amazon RDS and Amazon S3
 * Deployment - Jenkins, Amazon Ec2
-* Amazon services - Rekognition, Lex,Cognito, RDS, S3, EC2 with auto scaling group and load balancer
+* Amazon Cloud services
 * Microsoft Azure Active Directory
+
+
+## Amazon Cloud Services 
+* Rekognition
+* Amazon Lex
+* Cognito
+* RDS
+* S3 
+* EC2 with ELB
 
 ## Architecture Diagram:
 ![image](https://github.com/jrangu/CarRental-cmpe282/blob/master/Architecture%20diagram%201.png)
@@ -31,4 +40,4 @@ This is a web based car pooling application which is developed is to provide use
 ## UseCaseDiagram:
 ![image](https://github.com/jrangu/CarRental-cmpe282/blob/master/use%20case%20diagram.png)
 
-## Document link with project report and screenshots:
+
