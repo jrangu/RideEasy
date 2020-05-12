@@ -25,6 +25,7 @@ This is a web based car pooling application which is developed is to provide use
 * Microsoft Azure Active Directory
 
 ## Architecture Diagram:
+![image](https://github.com/jrangu/CarRental-cmpe282/blob/master/Architecture%20diagram%201.png)
 
 
 ## UseCaseDiagram:
